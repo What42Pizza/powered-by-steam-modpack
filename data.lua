@@ -70,7 +70,9 @@ data:extend{asphalt_tech}
 -- asphalt (tile)
 local asphalt_tile = table.deepcopy(data.raw["tile"]["concrete"])
 asphalt_tile.name = "asphalt"
-asphalt_tile.frozen_variant = "frozen-asphalt"
+if mods["space-age"] then
+	asphalt_tile.frozen_variant = "frozen-asphalt"
+end
 asphalt_tile.minable.result = "asphalt"
 asphalt_tile.order = "a[artificial]-b[tier-2]-a[asphalt]"
 asphalt_tile.decorative_removal_probability = 0.7
@@ -79,13 +81,15 @@ asphalt_tile.vehicle_friction_modifier = 0.7
 asphalt_tile.variants.material_background.picture = "__better-oil-processing__/graphics/terrain/asphalt/asphalt.png"
 data:extend{asphalt_tile}
 
--- asphalt (tile, frozen)
-local frozen_asphalt_tile = table.deepcopy(data.raw["tile"]["frozen-concrete"])
-frozen_asphalt_tile.name = "frozen-asphalt"
-frozen_asphalt_tile.thawed_variant = "asphalt"
-frozen_asphalt_tile.minable.result = "asphalt"
-frozen_asphalt_tile.order = "a[artificial]-b[tier-2]-a[frozen-asphalt]"
-data:extend{frozen_asphalt_tile}
+if mods["space-age"] then
+	-- asphalt (tile, frozen)
+	local frozen_asphalt_tile = table.deepcopy(data.raw["tile"]["frozen-concrete"])
+	frozen_asphalt_tile.name = "frozen-asphalt"
+	frozen_asphalt_tile.thawed_variant = "asphalt"
+	frozen_asphalt_tile.minable.result = "asphalt"
+	frozen_asphalt_tile.order = "a[artificial]-b[tier-2]-a[frozen-asphalt]"
+	data:extend{frozen_asphalt_tile}
+end
 
 
 
@@ -102,18 +106,20 @@ sulfur_autoplace_control.localised_name = {
 }
 data:extend{sulfur_autoplace_control}
 
--- vulcanus sulfur (autoplace-control)
-local vulcanus_sulfur_autoplace_control = table.deepcopy(data.raw["autoplace-control"]["vulcanus_coal"])
-vulcanus_sulfur_autoplace_control.name = "vulcanus_sulfur"
-vulcanus_sulfur_autoplace_control.order = "b-b"
-vulcanus_sulfur_autoplace_control.localised_name = {
-	"",
-	"[entity=sulfur] ",
-	{
-		"entity-name.sulfur"
+if mods["space-age"] then
+	-- vulcanus sulfur (autoplace-control)
+	local vulcanus_sulfur_autoplace_control = table.deepcopy(data.raw["autoplace-control"]["vulcanus_coal"])
+	vulcanus_sulfur_autoplace_control.name = "vulcanus_sulfur"
+	vulcanus_sulfur_autoplace_control.order = "b-b"
+	vulcanus_sulfur_autoplace_control.localised_name = {
+		"",
+		"[entity=sulfur] ",
+		{
+			"entity-name.sulfur"
+		}
 	}
-}
-data:extend{vulcanus_sulfur_autoplace_control}
+	data:extend{vulcanus_sulfur_autoplace_control}
+end
 
 -- sulfur (resource)
 local sulfur_resource = table.deepcopy(data.raw["resource"]["coal"])

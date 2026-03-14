@@ -190,13 +190,15 @@ replace_ingredient(rocket_fuel_recipe, "light-oil", {
 })
 
 -- acid neutralisation recipe tweaks
-local acid_neutralisation_recipe = data.raw["recipe"]["acid-neutralisation"]
-replace_result(acid_neutralisation_recipe, "steam", {
-	amount = 3000,
-	name = "steam",
-	temperature = 500,
-	type = "fluid"
-})
+if mods["space-age"] then
+	local acid_neutralisation_recipe = data.raw["recipe"]["acid-neutralisation"]
+	replace_result(acid_neutralisation_recipe, "steam", {
+		amount = 3000,
+		name = "steam",
+		temperature = 500,
+		type = "fluid"
+	})
+end
 
 
 
@@ -252,8 +254,10 @@ local planet = data.raw["planet"]
 
 planet.nauvis.map_gen_settings.autoplace_controls["sulfur"] = {}
 planet.nauvis.map_gen_settings.autoplace_settings.entity.settings["sulfur"] = {}
-planet.vulcanus.map_gen_settings.autoplace_controls["vulcanus_sulfur"] = {}
-planet.vulcanus.map_gen_settings.autoplace_settings.entity.settings["sulfur"] = {}
+if mods["space-age"] then
+	planet.vulcanus.map_gen_settings.autoplace_controls["vulcanus_sulfur"] = {}
+	planet.vulcanus.map_gen_settings.autoplace_settings.entity.settings["sulfur"] = {}
+end
 
 
 
