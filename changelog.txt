@@ -1,5 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 26/03/15
+  Balancing:
+    - Cracking and hot tar refining recipes are now slower
+	- Heating towers now have an efficiency of 2.0x instead of 2.5x and now consume 20MW instead of 16MW
+	- A few recipes now output less volatile gas
+	- Hot tar refining now gives 1 coke instead of 2
+	- Recipes with sulfuric acid as a catalyst now output 75 sulfuric acid instead of 80
+    - Asphalt recipe now consumes stone faster
+  Graphics:
+    - Asphalt research now has a custom icon
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 26/03/14
+  Major Features:
+    - Initial release
   Info:
-    - Initial version, very little testing
+    - Very little testing, waiting until I start on Powered By Steam

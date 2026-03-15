@@ -22,6 +22,12 @@ local new_fluid_box = table.deepcopy(fluid_boxes[3])
 new_fluid_box.pipe_connections[1].position = { 0, 1 }
 table.insert(fluid_boxes, new_fluid_box)
 
+-- heating tower tweaks
+if mods["space-age"] then
+	local heating_tower = data.raw["reactor"]["heating-tower"]
+	heating_tower.energy_source.effectivity = 2.0
+end
+
 
 
 -- basic oil processing tweaks
@@ -270,8 +276,8 @@ replace_ingredient(chemical_science_pack_recipe, "sulfur", {
 	type = "fluid"
 })
 
+-- tungsten plate recipe tweaks
 if mods["space-age"] then
-	-- tungsten plate recipe tweaks
 	local tungsten_plate_recipe = data.raw["recipe"]["tungsten-plate"]
 	table.insert(tungsten_plate_recipe.ingredients, {
 		amount = 1,

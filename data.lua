@@ -23,9 +23,10 @@ data:extend{asphalt}
 -- asphalt (recipe)
 local asphalt_recipe = table.deepcopy(data.raw["recipe"]["concrete"])
 asphalt_recipe.name = "asphalt"
+asphalt_recipe.energy_required = 8.0
 asphalt_recipe.ingredients = {
 	{
-		amount = 20,
+		amount = 25,
 		name = "stone",
 		type = "item"
 	},
@@ -47,6 +48,7 @@ data:extend{asphalt_recipe}
 -- asphalt (technology)
 local asphalt_tech = table.deepcopy(data.raw["technology"]["concrete"])
 asphalt_tech.name = "asphalt"
+asphalt_tech.icon = "__better-oil-processing__/graphics/technology/asphalt.png"
 asphalt_tech.effects = {
 	{
 		recipe = "asphalt",
@@ -81,8 +83,8 @@ asphalt_tile.vehicle_friction_modifier = 0.7
 asphalt_tile.variants.material_background.picture = "__better-oil-processing__/graphics/terrain/asphalt/asphalt.png"
 data:extend{asphalt_tile}
 
+-- asphalt (tile, frozen)
 if mods["space-age"] then
-	-- asphalt (tile, frozen)
 	local frozen_asphalt_tile = table.deepcopy(data.raw["tile"]["frozen-concrete"])
 	frozen_asphalt_tile.name = "frozen-asphalt"
 	frozen_asphalt_tile.thawed_variant = "asphalt"
@@ -106,8 +108,8 @@ sulfur_autoplace_control.localised_name = {
 }
 data:extend{sulfur_autoplace_control}
 
+-- vulcanus sulfur (autoplace-control)
 if mods["space-age"] then
-	-- vulcanus sulfur (autoplace-control)
 	local vulcanus_sulfur_autoplace_control = table.deepcopy(data.raw["autoplace-control"]["vulcanus_coal"])
 	vulcanus_sulfur_autoplace_control.name = "vulcanus_sulfur"
 	vulcanus_sulfur_autoplace_control.order = "b-b"
@@ -190,7 +192,7 @@ data:extend{volatile_gas}
 local hot_tar_refining = table.deepcopy(data.raw["recipe"]["heavy-oil-cracking"])
 hot_tar_refining.name = "hot-tar-refining"
 hot_tar_refining.order = "b[fluid-chemistry]-a[hot-tar-refining]"
-hot_tar_refining.energy_required = 1.0
+hot_tar_refining.energy_required = 1.25
 hot_tar_refining.ingredients = {
 	{
 		amount = 100,
@@ -210,7 +212,7 @@ hot_tar_refining.results = {
 		type = "fluid"
 	},
 	{
-		amount = 80,
+		amount = 75,
 		name = "sulfuric-acid",
 		type = "fluid"
 	},
@@ -220,7 +222,7 @@ hot_tar_refining.results = {
 		type = "fluid"
 	},
 	{
-		amount = 2,
+		amount = 1,
 		name = "coke",
 		type = "item"
 	}
@@ -243,7 +245,7 @@ data:extend{lubricant_from_kerosene}
 local hot_tar_cracking = table.deepcopy(data.raw["recipe"]["heavy-oil-cracking"])
 hot_tar_cracking.name = "hot-tar-cracking"
 hot_tar_cracking.order = "b[fluid-chemistry]-ba[hot-tar-cracking]"
-hot_tar_cracking.energy_required = 0.5
+hot_tar_cracking.energy_required = 0.75
 hot_tar_cracking.ingredients = {
 	{
 		amount = 100,
@@ -263,7 +265,7 @@ hot_tar_cracking.results = {
 		type = "fluid"
 	},
 	{
-		amount = 80,
+		amount = 75,
 		name = "sulfuric-acid",
 		type = "fluid"
 	},
@@ -285,7 +287,7 @@ data:extend{hot_tar_cracking}
 local kerosene_cracking = table.deepcopy(data.raw["recipe"]["heavy-oil-cracking"])
 kerosene_cracking.name = "kerosene-cracking"
 kerosene_cracking.order = "b[fluid-chemistry]-bb[kerosene-cracking]"
-kerosene_cracking.energy_required = 0.5
+kerosene_cracking.energy_required = 0.75
 kerosene_cracking.ingredients = {
 	{
 		amount = 100,
@@ -305,7 +307,7 @@ kerosene_cracking.results = {
 		type = "fluid"
 	},
 	{
-		amount = 80,
+		amount = 75,
 		name = "sulfuric-acid",
 		type = "fluid"
 	},
@@ -322,7 +324,7 @@ data:extend{kerosene_cracking}
 local petroleum_gas_cracking = table.deepcopy(data.raw["recipe"]["heavy-oil-cracking"])
 petroleum_gas_cracking.name = "petroleum-gas-cracking"
 petroleum_gas_cracking.order = "b[fluid-chemistry]-bc[petroleum-gas-cracking]"
-petroleum_gas_cracking.energy_required = 0.5
+petroleum_gas_cracking.energy_required = 0.75
 petroleum_gas_cracking.ingredients = {
 	{
 		amount = 100,
@@ -337,12 +339,12 @@ petroleum_gas_cracking.ingredients = {
 }
 petroleum_gas_cracking.results = {
 	{
-		amount = 50,
+		amount = 30,
 		name = "volatile-gas",
 		type = "fluid"
 	},
 	{
-		amount = 80,
+		amount = 75,
 		name = "sulfuric-acid",
 		type = "fluid"
 	}
@@ -414,7 +416,7 @@ coal_coking.results = {
 		type = "item"
 	},
 	{
-		amount = 10,
+		amount = 5,
 		name = "volatile-gas",
 		type = "fluid"
 	}

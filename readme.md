@@ -22,5 +22,6 @@ This mod aims to overhaul Factorio's oil processing pipeline to be more complex 
 - All oil processing recipes are generally more complex, with more inputs and more outputs
 - Some researches are shifted around
 - Refineries and chemical plants are faster to make up for the additional complexity
+- Most changed recipes have more than one output, meaning you have to manage the levels of all resources
 
 Note: this mod is easier with [Flare Stack Redux](https://mods.factorio.com/mod/Flare_Stack_Redux) (for deleting extra items/gases) and/or [Gas Works](https://mods.factorio.com/mod/GasWorks) (for generating electricity with extra items/gases) installed, but this is balanced assuming you aren't using them.
