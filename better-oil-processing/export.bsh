@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd exporter
+cd ../exporter
 cargo run

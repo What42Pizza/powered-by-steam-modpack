@@ -1,0 +1,72 @@
+Within 'Powered By Steam - Tweaks:
+
+- machines that are powered by steam (instead of electricity):
+  - assembly machines
+  - foundries
+  - chemical plants
+  - rocket silo
+  - roboports
+- removals:
+  - all damage upgrades
+  - everything involving lasers
+  - green belts
+  - steam turbines
+  - nuclear fuel
+  - all locomotive braking force upgrades
+- changes:
+  - green circuits are now camshafts and its recipe is now iron rod + copper -> camshaft
+  - red circuits are now clockworks
+  - blue circuits are now mechanical computers
+  - replace plastic with bearings?
+  - add crude oil to clockworks recipe?
+  - swap sulfuric acid in mechanical computers with lubricant oil
+  - add lubricant to many more recipes (to increase the presence of fluids and fluid handling)
+  - all science is 2x as expensive
+  - gleba has small but rich iron and copper patches?
+  - rocket silos now take 20 rocket parts with each part taking 3 of each ingredient (so 60 total instead of 50 total)
+  - flamethrowers consume significantly more fuel and have less overall damage
+  - blue belts are unlocked on vulcanus, effectively becoming the new green belts
+  - assembly machine 3s are unlocked on fulgora
+  - science packs are replaced with 'science materials', which are just boxes with the previous science pack icon as labels on them
+  - you start with no items at all
+  - locomotives have 0.5x as much acceleration
+  - cargo wagons have 2x as much storage
+  - locomotives can only take certain fuels? (if so, one loco type per fuel type?)
+- additions:
+  - copper pipes, used in many recipes (just like gears)
+  - many more infinite-like researches?
+
+
+
+Within 'Space Age To 1.1 Tweaks':
+
+- removals:
+  - all molten metals
+- changes:
+  - quality buffs are significantly nerfed
+  - quality modules are buffed
+  - legendary quality & quality module 3s are unlocked with fulgora
+  - foundries, electromagnetic plants, and nutrient plant things have a 25% prod bonus instead of 50%
+  - bio-labs have a 75% science drain instead of 50%
+  - bulk inserters now max at 8 items
+  - stack inserters now max at 12 items
+  - fluid wagons have 0.5x as mush storage
+  - cliff explosives are not bounded to vulcanus
+
+
+
+Within 'Better Oil Refining':
+
+- refineries have 4 output slots
+- chemical plants have 3 output slots
+- coke is a new fuel that lasts 4x longer than coal
+- oil refining takes steam and crude oil as input and outputs hot tar, kerosene, petroleum, and volatile gas
+- tar refining takes hot tar and sulfuric acid as input and outputs lubricating oil (lubricant but renamed), sulfuric acid (90% return rate), and coke
+- tar cracking takes hot tar and sulfuric acid as input and outputs kerosene, volatile gas, sulfuric acid (90% return rate), and coke
+- kerosene cracking takes kerosene and sulfuric acid as input and outputs petroleum, volatile gas, and sulfuric acid (90% return rate)
+- sulfur is mined (just like iron/copper/coal etc)
+- sulfuric acid is made with sulfur and steam and outputs stone and sulfuric acid
+- solid fuel is made with volatile gas + petroleum (most efficient) or petroleum + kerosene
+- rocket fuel is made with volatile gas + solid fuel
+- asphalt (just another paver like concrete) can be made with hot tar and stone
+- make flamethrowers only take crude oil and kerosene
