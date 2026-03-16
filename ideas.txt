@@ -48,10 +48,14 @@ Within 'Space Age To 1.1 Tweaks':
   - legendary quality & quality module 3s are unlocked with fulgora
   - foundries, electromagnetic plants, and nutrient plant things have a 25% prod bonus instead of 50%
   - bio-labs have a 75% science drain instead of 50%
-  - bulk inserters now max at 8 items
-  - stack inserters now max at 12 items
+  - (big mining drills are unchanged)
+  - bulk inserters now max at 9 items
+  - stack inserters now max at 15 items (and drop stacks of 3)
+  - all other inserters now max at 3 items
   - fluid wagons have 0.5x as mush storage
   - cliff explosives are not bounded to vulcanus
+  - decrease return rate of asteroid reprocessing
+  - make nutrient plants things take nutrient water instead of nutrients?
 
 
 

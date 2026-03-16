@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd ../exporter
-cargo run
+cargo run -- -p better-oil-processing
