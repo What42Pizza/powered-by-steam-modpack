@@ -13,6 +13,8 @@ This mod aims to overhaul Factorio's oil processing pipeline to be more complex 
 - Volatile Gas
 - Coke
 - Asphalt
+- Hard Plastic
+- Soft Plastic
 
 ## Changes:
 

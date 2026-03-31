@@ -28,6 +28,45 @@ if mods["space-age"] then
 	heating_tower.energy_source.effectivity = 2.0
 end
 
+-- plastic bar tweaks
+local plastic_bar = data.raw["item"]["plastic-bar"]
+plastic_bar.order = "b[chemistry]-b[hard-plastic-bar]"
+plastic_bar.icon = "__better-oil-processing__/graphics/icons/hard-plastic-bar.png"
+
+-- plastic bar (recipe) tweaks
+local plastic_bar_recipe = data.raw["recipe"]["plastic-bar"]
+--plastic_bar_recipe.order = "b[chemistry]-b[hard-plastic-bar]"
+plastic_bar_recipe.icon = "__better-oil-processing__/graphics/icons/hard-plastic-bar-recipe.png"
+plastic_bar_recipe.ingredients = {
+	{
+		amount = 20,
+		name = "petroleum-gas",
+		type = "fluid"
+	},
+	{
+		amount = 5,
+		name = "volatile-gas",
+		type = "fluid"
+	}
+}
+
+-- plastics (tech) tweaks
+local plastics_tech = data.raw["technology"]["plastics"]
+table.insert(plastics_tech.effects, {
+	recipe = "soft-plastic-bar",
+	type = "unlock-recipe"
+})
+
+-- add soft plastic to some recipes
+replace_ingredient_name(data.raw["recipe"]["low-density-structure"], "plastic-bar", "soft-plastic-bar")
+replace_ingredient_name(data.raw["recipe"]["casting-low-density-structure"], "plastic-bar", "soft-plastic-bar")
+replace_ingredient_name(data.raw["recipe"]["superconductor"], "plastic-bar", "soft-plastic-bar")
+replace_ingredient_name(data.raw["recipe"]["tesla-ammo"], "plastic-bar", "soft-plastic-bar")
+
+-- oil ocean tweaks
+data.raw["tile"]["oil-ocean-shallow"].fluid = "kerosene"
+data.raw["tile"]["oil-ocean-deep"].fluid = "kerosene"
+
 
 
 -- basic oil processing tweaks

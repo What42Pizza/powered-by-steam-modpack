@@ -1,8 +1,12 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.2
-Date: 
+Version: 0.2.0
+Date: 26/03/31
+  Major Features:
+    - Split item 'plastic bar' into 'soft plastic bar' and 'hard plastic bar'
   Balancing:
     - Recipe 'casting steel' now also takes 1 coke
+  Compatibility:
+    - Oceans on Fulgora are now kerosene oceans instead of heavy oil oceans
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 26/03/15

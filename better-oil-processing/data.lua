@@ -12,6 +12,39 @@ coke.fuel_value = "8MJ"
 coke.fuel_acceleration_multiplier = 1.0
 data:extend{coke}
 
+-- soft plastic bar
+local soft_plastic_bar = table.deepcopy(data.raw["item"]["plastic-bar"])
+soft_plastic_bar.name = "soft-plastic-bar"
+soft_plastic_bar.order = "b[chemistry]-b[soft-plastic-bar]"
+soft_plastic_bar.icon = "__better-oil-processing__/graphics/icons/soft-plastic-bar.png"
+data:extend{soft_plastic_bar}
+
+-- soft plastic bar (recipe)
+local soft_plastic_bar_recipe = table.deepcopy(data.raw["recipe"]["plastic-bar"])
+soft_plastic_bar_recipe.name = "soft-plastic-bar"
+--soft_plastic_bar_recipe.order = "b[chemistry]-b[soft-plastic-bar]"
+soft_plastic_bar_recipe.icon = "__better-oil-processing__/graphics/icons/soft-plastic-bar-recipe.png"
+soft_plastic_bar_recipe.ingredients = {
+	{
+		amount = 20,
+		name = "kerosene",
+		type = "fluid"
+	},
+	{
+		amount = 1,
+		name = "sulfur",
+		type = "item"
+	}
+}
+soft_plastic_bar_recipe.results = {
+	{
+		amount = 2,
+		name = "soft-plastic-bar",
+		type = "item"
+	}
+}
+data:extend{soft_plastic_bar_recipe}
+
 -- asphalt (item)
 local asphalt = table.deepcopy(data.raw["item"]["concrete"])
 asphalt.name = "asphalt"
