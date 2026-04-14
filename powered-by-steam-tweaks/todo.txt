@@ -1,8 +1,3 @@
-turn furnaces into assembly machines so that recipes can be manually set
-add 'iron cylinders', which take 2 iron ore
-add fluid 'milling lubricant' which is made of water and coal
-make recipe for camshaft take just iron cylinders and milling lubricant
-make recipe for gears take milling lubricant
-make recipe for engines take milling lubricant
 add 'iron block' which engines are made from?
+add an alternative better recipe for steel that takes coke instead of coal
 make recipe for steel take coal as an ingredient (with a better recipe later on that takes coke instead)

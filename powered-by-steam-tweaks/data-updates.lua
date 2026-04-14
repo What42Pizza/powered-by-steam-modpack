@@ -17,6 +17,13 @@ furnace_to_assembler("stone-furnace")
 furnace_to_assembler("steel-furnace")
 data.raw["furnace"]["electric-furnace"].enabled = false
 
+local assembling_machine_1 = data.raw["assembling-machine"]["assembling-machine-1"]
+table.insert(assembling_machine_1.crafting_categories, "crafting-with-fluid")
+assembling_machine_1.fluid_boxes = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"].fluid_boxes)
+assembling_machine_1.fluid_boxes_off_when_no_fluid_recipe = true
+
+data.raw["cargo-wagon"]["cargo-wagon"].inventory_size = 60
+
 
 
 for _,tech in pairs(data.raw.technology) do

@@ -4,6 +4,6 @@
 	"title": "Powered By Steam Tweaks",
 	"author": "What42Pizza",
 	"factorio_version": "2.0",
-	"dependencies": ["base >= 2.0", "space-age", "quality"],
+	"dependencies": ["base >= 2.0", "space-age", "quality", "better-oil-processing", "space-age-to-1.1-tweaks"],
 	"description": "Applies all custom tweaks made for the Powered By Steam overhaul."
 }

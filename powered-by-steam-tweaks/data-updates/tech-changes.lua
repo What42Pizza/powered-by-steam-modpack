@@ -14,6 +14,10 @@ electronics.research_trigger.item = "iron-plate"
 remove_effect(electronics, function(effect) return effect.recipe == "inserter" end, "recipe \"inserter\"")
 remove_effect(electronics, function(effect) return effect.recipe == "copper-cable" end, "recipe \"copper-cable\"")
 remove_effect(electronics, function(effect) return effect.recipe == "small-electric-pole" end, "recipe \"small-electric-pole\"")
+table.insert(electronics.effects, {
+	recipe = "graphite-lubricant",
+	type = "unlock-recipe"
+})
 
 
 
@@ -29,6 +33,20 @@ fast_inserter.unit.ingredients = {
 fast_inserter.prerequisites = {
 	"inserter",
 	"chemical-science-pack"
+}
+
+table.insert(data.raw["technology"]["fluid-handling"].effects, 3, {
+	recipe = "electric-pump",
+	type = "unlock-recipe"
+})
+
+
+
+local chemical_science_pack = data.raw["technology"]["chemical-science-pack"]
+chemical_science_pack.unit.count = 100
+chemical_science_pack.prerequisites = {
+	"plastics",
+	"sulfur-processing"
 }
 
 
@@ -53,3 +71,11 @@ data.raw["technology"]["weapon-shooting-speed-3"].hidden = true
 data.raw["technology"]["weapon-shooting-speed-4"].hidden = true
 data.raw["technology"]["weapon-shooting-speed-5"].hidden = true
 data.raw["technology"]["weapon-shooting-speed-6"].hidden = true
+
+data.raw["technology"]["braking-force-1"].hidden = true
+data.raw["technology"]["braking-force-2"].hidden = true
+data.raw["technology"]["braking-force-3"].hidden = true
+data.raw["technology"]["braking-force-4"].hidden = true
+data.raw["technology"]["braking-force-5"].hidden = true
+data.raw["technology"]["braking-force-6"].hidden = true
+data.raw["technology"]["braking-force-7"].hidden = true

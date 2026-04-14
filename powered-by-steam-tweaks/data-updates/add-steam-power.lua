@@ -24,12 +24,12 @@ local pipeConnections_LR = { -- left, right
 }
 local pipeConnections_LR_3 = { -- left, right
 	{
-		position = {1.5, 0},
+		position = {2, 0},
 		direction = 4,
 		flow_direction = "input-output"
 	},
 	{
-		position = {-1.5, 0},
+		position = {-2, 0},
 		direction = 12,
 		flow_direction = "input-output"
 	}
@@ -110,3 +110,4 @@ addSteamPower(data.raw["pump"]["pump"], {
 		flow_direction = "input-output"
 	}
 })
+addSteamPower(data.raw["assembling-machine"]["oil-refinery"], pipeConnections_LR_3)

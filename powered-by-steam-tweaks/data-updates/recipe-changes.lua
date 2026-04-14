@@ -8,14 +8,14 @@ local electronic_circuit = data.raw["recipe"]["electronic-circuit"]
 electronic_circuit.ingredients = {
 	{
 		amount = 1,
-		name = "iron-stick",
+		name = "iron-cylinder",
 		type = "item"
 	},
 	{
-		amount = 1,
-		name = "iron-gear-wheel",
-		type = "item"
-	},
+		amount = 5,
+		name = "graphite-lubricant",
+		type = "fluid"
+	}
 }
 
 replace_ingredient(data.raw["recipe"]["lab"], "transport-belt", {
@@ -53,3 +53,51 @@ replace_ingredient(data.raw["recipe"]["transport-belt"], "iron-plate", {
 	name = "copper-plate",
 	type = "item"
 })
+
+
+
+table.insert(data.raw["recipe"]["steel-plate"].ingredients, {
+	amount = 1,
+	name = "coal",
+	type = "item"
+})
+
+local engine = data.raw["recipe"]["engine-unit"]
+engine.ingredients = {
+	{
+		amount = 3,
+		name = "iron-cylinder",
+		type = "item"
+	},
+	{
+		amount = 10,
+		name = "graphite-lubricant",
+		type = "fluid"
+	},
+	{
+		amount = 3,
+		name = "steel-plate",
+		type = "item"
+	}
+}
+
+
+
+local chemical_science_pack = data.raw["recipe"]["chemical-science-pack"]
+chemical_science_pack.ingredients = {
+	{
+		amount = 30,
+		name = "graphite-lubricant",
+		type = "fluid"
+	},
+	{
+		amount = 5,
+		name = "plastic-bar",
+		type = "item"
+	},
+	{
+		amount = 25,
+		name = "sulfuric-acid",
+		type = "fluid"
+	}
+}
