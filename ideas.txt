@@ -15,6 +15,8 @@ Within 'Powered By Steam - Tweaks:
   - steam turbines
   - nuclear fuel
   - all locomotive braking force upgrades
+  - pollution decrease of effeciency modules
+  - all teir 3 modules?
 - changes:
   - green circuits are now camshafts and its recipe is now iron rod + copper -> camshaft
   - red circuits are now clockworks
@@ -23,14 +25,14 @@ Within 'Powered By Steam - Tweaks:
   - add crude oil to clockworks recipe?
   - swap sulfuric acid in mechanical computers with lubricant oil
   - add lubricant to many more recipes (to increase the presence of fluids and fluid handling)
-  - all science is 2x as expensive
+  - all science is 2x as expensive (or maybe 1.5x, or maybe customize each cost so that late-game science is very expensive?)
   - gleba has small but rich iron and copper patches?
   - rocket silos now take 20 rocket parts with each part taking 3 of each ingredient (so 60 total instead of 50 total)
   - flamethrowers consume significantly more fuel and have less overall damage
   - blue belts are unlocked on vulcanus, effectively becoming the new green belts
   - assembly machine 3s are unlocked on fulgora
   - science packs are replaced with 'science materials', which are just boxes with the previous science pack icon as labels on them
-  - you start with no items at all
+  - you start with no items at all, except for modular armor + a roboport + personal solar panels + 30 robots (in your inventory and not equiped so that players will always notice it)
   - burner miners are buffed to match the smelting speed of furnaces
   - locomotives have 0.5x as much acceleration
   - cargo wagons have 2x as much storage
@@ -39,10 +41,23 @@ Within 'Powered By Steam - Tweaks:
   - agricultural towers are unlocked very early on and are used for something?
   - unlock fish breeding earlier and make bots take fish as an ingredient?
   - increase car's top speed?
+  - unlock assembly machine 1 from the start
+  - make red science take an assembly machine 1 and a burner miner as ingredients
+  - add a kerosene ingredient for rocket parts?
+  - slightly decrease roboport ranges?
+  - increase default robot speed and slightly decrease speed tech buffs?
+  - increase transfer speed of heat pipes?
+  - remove all 'adv item takes prev item as ingredient' recipes
+  - slightly buff mining speed?
+  - slightly increase underground belt length?
 - additions:
   - copper pipes, used in many recipes (just like gears)
   - many more infinite researches?
   - add a wood to crude oil recipe?
+  - add a 5x5 storage tank
+- additional mods:
+  - behemoth demolishers?
+  - anti turret creep?
 
 
 
