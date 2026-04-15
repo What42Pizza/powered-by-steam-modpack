@@ -3,6 +3,9 @@ data.raw["recipe"]["pipe-to-ground"].enabled = true
 
 data.raw["recipe"]["iron-plate"].energy_required = 2.4
 data.raw["recipe"]["copper-plate"].energy_required = 2.4
+data.raw["recipe"]["stone-brick"].energy_required = 4.8
+
+
 
 local electronic_circuit = data.raw["recipe"]["electronic-circuit"]
 electronic_circuit.ingredients = {
@@ -17,6 +20,27 @@ electronic_circuit.ingredients = {
 		type = "fluid"
 	}
 }
+
+local advanced_circuit = data.raw["recipe"]["advanced-circuit"]
+advanced_circuit.ingredients = {
+	{
+		amount = 3,
+		name = "electronic-circuit",
+		type = "item"
+	},
+	{
+		amount = 10,
+		name = "lubricant",
+		type = "fluid"
+	},
+	{
+		amount = 1,
+		name = "soft-plastic-bar",
+		type = "item"
+	}
+}
+
+
 
 replace_ingredient(data.raw["recipe"]["lab"], "transport-belt", {
 	amount = 5,
@@ -84,6 +108,7 @@ engine.ingredients = {
 
 
 local chemical_science_pack = data.raw["recipe"]["chemical-science-pack"]
+chemical_science_pack.category = "chemistry"
 chemical_science_pack.ingredients = {
 	{
 		amount = 30,
@@ -96,7 +121,7 @@ chemical_science_pack.ingredients = {
 		type = "item"
 	},
 	{
-		amount = 25,
+		amount = 150,
 		name = "sulfuric-acid",
 		type = "fluid"
 	}

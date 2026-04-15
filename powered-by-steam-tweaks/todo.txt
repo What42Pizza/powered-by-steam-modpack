@@ -1,3 +1,5 @@
 add 'iron block' which engines are made from?
 add an alternative better recipe for steel that takes coke instead of coal
-make recipe for steel take coal as an ingredient (with a better recipe later on that takes coke instead)
+add item 'resin' which is made from wood
+add resin as an ingredient for red belts
+slightly decrease locomotive acceleration

@@ -16,7 +16,7 @@ table.insert(fluid_boxes, new_fluid_box)
 
 -- chemical plant tweaks
 local chemical_plant = data.raw["assembling-machine"]["chemical-plant"]
-chemical_plant.crafting_speed = 1.5
+chemical_plant.crafting_speed = 1.25
 local fluid_boxes = chemical_plant.fluid_boxes
 local new_fluid_box = table.deepcopy(fluid_boxes[3])
 new_fluid_box.pipe_connections[1].position = { 0, 1 }
@@ -271,8 +271,8 @@ sulfuric_acid_recipe.ingredients = {
 		type = "item"
 	},
 	{
-		amount = 20,
-		name = "steam",
+		amount = 25,
+		name = "water",
 		type = "fluid"
 	}
 }

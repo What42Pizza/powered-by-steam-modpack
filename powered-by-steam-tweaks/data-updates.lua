@@ -24,6 +24,11 @@ assembling_machine_1.fluid_boxes_off_when_no_fluid_recipe = true
 
 data.raw["cargo-wagon"]["cargo-wagon"].inventory_size = 60
 
+local one_second = 60
+local one_minute = one_second * 60
+local one_hour = one_minute * 60
+data.raw["capsule"]["raw-fish"].spoil_ticks = one_hour
+
 
 
 for _,tech in pairs(data.raw.technology) do

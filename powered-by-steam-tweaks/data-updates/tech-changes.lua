@@ -24,21 +24,37 @@ table.insert(electronics.effects, {
 local automation = data.raw["technology"]["automation"]
 remove_effect(automation, function(effect) return effect.recipe == "long-handed-inserter" end, "recipe \"long-handed-inserter\"")
 
-local fast_inserter = data.raw["technology"]["fast-inserter"]
-fast_inserter.unit.ingredients = {
-	{ "automation-science-pack", 1 },
-	{ "logistic-science-pack", 1 },
-	{ "chemical-science-pack", 1 }
+local fluid_handling = data.raw["technology"]["fluid-handling"]
+fluid_handling.prerequisites = {
+	"automation"
 }
-fast_inserter.prerequisites = {
-	"inserter",
-	"chemical-science-pack"
-}
-
-table.insert(data.raw["technology"]["fluid-handling"].effects, 3, {
+table.insert(fluid_handling.effects, 3, {
 	recipe = "electric-pump",
 	type = "unlock-recipe"
 })
+
+data.raw["technology"]["toolbelt"].unit.count = 100
+
+local agriculture = data.raw["technology"]["agriculture"]
+agriculture.prerequisites = {
+	"logistic-science-pack",
+	"landfill"
+}
+agriculture.research_trigger = nil
+agriculture.unit = {
+	count = 50,
+	ingredients = {
+		{ "automation-science-pack", 1 },
+		{ "logistic-science-pack", 1 },
+	},
+	time = 30
+}
+
+local logistics_2 = data.raw["technology"]["logistics-2"]
+table.insert(logistics_2.prerequisites, "agriculture")
+
+data.raw["technology"]["jellynut"].prerequisites = { "planet-discovery-gleba" }
+data.raw["technology"]["yumako"].prerequisites = { "planet-discovery-gleba" }
 
 
 
@@ -54,6 +70,107 @@ chemical_science_pack.prerequisites = {
 data.raw["technology"]["advanced-material-processing-2"].hidden = true
 find_remove(data.raw["technology"]["production-science-pack"].prerequisites, "advanced-material-processing-2")
 find_remove(data.raw["technology"]["rocket-silo"].prerequisites, "advanced-material-processing-2")
+
+local fast_inserter = data.raw["technology"]["fast-inserter"]
+fast_inserter.unit.count = 75
+fast_inserter.unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+fast_inserter.prerequisites = {
+	"inserter",
+	"chemical-science-pack"
+}
+
+local advanced_circuit = data.raw["technology"]["advanced-circuit"]
+advanced_circuit.prerequisites = {
+	"chemical-science-pack",
+	"lubricant"
+}
+advanced_circuit.unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+
+local automation_2 = data.raw["technology"]["automation-2"]
+automation_2.prerequisites = {
+	"automation",
+	"steel-processing",
+	"advanced-circuit"
+}
+automation_2.unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+
+data.raw["technology"]["battery"].unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+
+local military_2 = data.raw["technology"]["military-2"]
+military_2.prerequisites = {
+	"military",
+	"steel-processing",
+	"chemical-science-pack"
+}
+military_2.unit.count = 150
+military_2.unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+
+local flammables = data.raw["technology"]["flammables"]
+flammables.prerequisites = {
+	"military-2",
+	"chemical-science-pack"
+}
+flammables.unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+
+local electric_energy_distribution_1 = data.raw["technology"]["electric-energy-distribution-1"]
+electric_energy_distribution_1.prerequisites = {
+	"chemical-science-pack",
+	"steel-processing"
+}
+electric_energy_distribution_1.unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+remove_effect(electric_energy_distribution_1, function(effect) return effect.recipe == "big-electric-pole" end, "recipe \"big-electric-pole\"")
+
+local electric_energy_distribution_2 = data.raw["technology"]["electric-energy-distribution-2"]
+electric_energy_distribution_2.prerequisites = {
+	"electric-energy-distribution-1",
+	"utility-science-pack"
+}
+electric_energy_distribution_2.unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 },
+	{ "utility-science-pack", 1 }
+}
+
+data.raw["technology"]["explosives"].unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
+
+data.raw["technology"]["electric-energy-accumulators"].unit.ingredients = {
+	{ "automation-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+	{ "chemical-science-pack", 1 }
+}
 
 
 
@@ -79,3 +196,28 @@ data.raw["technology"]["braking-force-4"].hidden = true
 data.raw["technology"]["braking-force-5"].hidden = true
 data.raw["technology"]["braking-force-6"].hidden = true
 data.raw["technology"]["braking-force-7"].hidden = true
+
+data.raw["technology"]["research-speed-1"].hidden = true
+data.raw["technology"]["research-speed-2"].hidden = true
+data.raw["technology"]["research-speed-3"].hidden = true
+data.raw["technology"]["research-speed-4"].hidden = true
+data.raw["technology"]["research-speed-5"].hidden = true
+data.raw["technology"]["research-speed-6"].hidden = true
+
+data.raw["technology"]["laser"].hidden = true
+data.raw["technology"]["laser-turret"].hidden = true
+data.raw["technology"]["personal-laser-defense-equipment"].hidden = true
+data.raw["technology"]["laser-shooting-speed-1"].hidden = true
+data.raw["technology"]["laser-shooting-speed-2"].hidden = true
+data.raw["technology"]["laser-shooting-speed-3"].hidden = true
+data.raw["technology"]["laser-shooting-speed-4"].hidden = true
+data.raw["technology"]["laser-shooting-speed-5"].hidden = true
+data.raw["technology"]["laser-shooting-speed-6"].hidden = true
+data.raw["technology"]["laser-shooting-speed-7"].hidden = true
+data.raw["technology"]["laser-weapons-damage-1"].hidden = true
+data.raw["technology"]["laser-weapons-damage-2"].hidden = true
+data.raw["technology"]["laser-weapons-damage-3"].hidden = true
+data.raw["technology"]["laser-weapons-damage-4"].hidden = true
+data.raw["technology"]["laser-weapons-damage-5"].hidden = true
+data.raw["technology"]["laser-weapons-damage-6"].hidden = true
+data.raw["technology"]["laser-weapons-damage-7"].hidden = true

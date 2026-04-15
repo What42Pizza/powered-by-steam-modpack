@@ -1,4 +1,6 @@
 function addSteamPower(prototype, pipe_connections)
+	local emissions = table.deepcopy(prototype.energy_source.emissions_per_minute)
+	if emissions and emissions.pollution then emissions.pollution = emissions.pollution * 1.25 end
 	prototype.energy_source = {
 		type = "fluid",
 		scale_fluid_usage = true,
@@ -6,7 +8,7 @@ function addSteamPower(prototype, pipe_connections)
 			pipe_connections = pipe_connections,
 			volume = 100
 		},
-		emissions_per_minute = prototype.energy_source.emissionsPerMinute
+		emissions_per_minute = emissions
 	}
 end
 
@@ -85,6 +87,7 @@ addSteamPower(data.raw.lab.lab, pipeConnections_LRTB)
 addSteamPower(data.raw["assembling-machine"]["assembling-machine-1"], pipeConnections_LR)
 addSteamPower(data.raw["assembling-machine"]["assembling-machine-2"], pipeConnections_LR)
 addSteamPower(data.raw["assembling-machine"]["assembling-machine-3"], pipeConnections_LR)
+addSteamPower(data.raw["assembling-machine"]["chemical-plant"], pipeConnections_LR)
 addSteamPower(data.raw["mining-drill"]["electric-mining-drill"], {
 	{
 		position = {1, 1},
