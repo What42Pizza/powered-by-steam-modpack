@@ -1,0 +1,2 @@
+to auto-generate mipmaps:
+for f in *.png; do ./magick "$f" -filter point -background none -gravity north-west -write mpr:orig \( mpr:orig -resize 32x32 -extent 32x64 \) \( mpr:orig -resize 16x16 -extent 16x64 \) \( mpr:orig -resize 8x8 -extent 8x64 \) +append "${f%.png}_out.png"; done

@@ -107,6 +107,22 @@ engine.ingredients = {
 
 
 
+local automation_science_pack = data.raw["recipe"]["automation-science-pack"]
+automation_science_pack.ingredients = {
+	{
+		amount = 1,
+		name = "assembling-machine-1",
+		type = "item"
+	},
+	{
+		amount = 1,
+		name = "burner-mining-drill",
+		type = "item"
+	}
+}
+
+
+
 local chemical_science_pack = data.raw["recipe"]["chemical-science-pack"]
 chemical_science_pack.category = "chemistry"
 chemical_science_pack.ingredients = {
