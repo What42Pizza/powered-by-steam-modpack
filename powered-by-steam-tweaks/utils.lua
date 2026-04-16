@@ -14,6 +14,14 @@ function replace_ingredient(input, ingredient_name, new_ingredient)
 	end
 end
 
+function replace_ingredient_name(input, ingredient_name, new_ingredient_name)
+	for k,v in pairs(input.ingredients) do
+		if v.name == ingredient_name then
+			input.ingredients[k].name = new_ingredient_name
+		end
+	end
+end
+
 function replace_result(input, result_name, new_result)
 	for k,v in pairs(input.results) do
 		if v.name == result_name then
