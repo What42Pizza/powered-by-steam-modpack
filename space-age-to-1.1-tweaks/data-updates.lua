@@ -50,46 +50,22 @@ data.raw["fluid"]["molten-copper"].hidden = true
 -- casting iron recipe
 local casting_iron_recipe = data.raw["recipe"]["casting-iron"]
 casting_iron_recipe.ingredients = {
-	{
-		amount = 10,
-		name = "iron-ore",
-		type = "item"
-	},
-	{
-		amount = 1,
-		name = "calcite",
-		type = "item"
-	}
+	{ amount = 10, name = "iron-ore", type = "item" },
+	{ amount = 1 , name = "calcite" , type = "item" },
 }
 casting_iron_recipe.results = {
-	{
-		amount = 10,
-		name = "iron-plate",
-		type = "item"
-	}
+	{ amount = 10, name = "iron-plate", type = "item" },
 }
 casting_iron_recipe.energy_required = 32.0
 
 -- casting copper recipe
 local casting_copper_recipe = data.raw["recipe"]["casting-copper"]
 casting_copper_recipe.ingredients = {
-	{
-		amount = 10,
-		name = "copper-ore",
-		type = "item"
-	},
-	{
-		amount = 1,
-		name = "calcite",
-		type = "item"
-	}
+	{ amount = 10, name = "copper-ore", type = "item" },
+	{ amount = 1 , name = "calcite"   , type = "item" },
 }
 casting_copper_recipe.results = {
-	{
-		amount = 10,
-		name = "copper-plate",
-		type = "item"
-	}
+	{ amount = 10, name = "copper-plate", type = "item" },
 }
 casting_copper_recipe.energy_required = 32.0
 
@@ -154,6 +130,7 @@ end
 
 
 -- quality technology tweaks
+
 local quality_module_2_tech = data.raw["technology"]["quality-module-2"]
 table.insert(quality_module_2_tech.effects, {
 	quality = "epic",
@@ -168,7 +145,22 @@ table.insert(quality_module_3_tech.effects, {
 })
 data.raw["technology"]["legendary-quality"].hidden = true
 
+-- quality module tweaks
+
+local quality_module_1 = data.raw["module"]["quality-module"]
+local quality_module_2 = data.raw["module"]["quality-module-2"]
+local quality_module_3 = data.raw["module"]["quality-module-3"]
+quality_module_1.effect.quality = 0.125
+quality_module_2.effect.quality = 0.25
+quality_module_3.effect.quality = 0.325
+
 -- quality buff tweaks
+
+data.raw["quality"]["uncommon"] .default_multiplier = 1.2
+data.raw["quality"]["rare"]     .default_multiplier = 1.4
+data.raw["quality"]["epic"]     .default_multiplier = 1.6
+data.raw["quality"]["legendary"].default_multiplier = 2.0
+
 data.raw["quality"]["uncommon"] .beacon_power_usage_multiplier = 0.9
 data.raw["quality"]["rare"]     .beacon_power_usage_multiplier = 0.8
 data.raw["quality"]["epic"]     .beacon_power_usage_multiplier = 0.7
