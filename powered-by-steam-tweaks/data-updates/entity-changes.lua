@@ -1,6 +1,6 @@
 data.raw["character"]["character"].running_speed = 0.17
 
-data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 1.0 / 2.4
+data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 1.0 / 2.4 * 1.25
 
 data.raw["construction-robot"]["construction-robot"].speed = 0.08
 
@@ -17,6 +17,14 @@ assembling_machine_1.fluid_boxes = table.deepcopy(data.raw["assembling-machine"]
 assembling_machine_1.fluid_boxes_off_when_no_fluid_recipe = true
 
 data.raw["cargo-wagon"]["cargo-wagon"].inventory_size = 60
+
+local agricultural_tower = data.raw["agricultural-tower"]["agricultural-tower"]
+local agricultural_tower_speed = agricultural_tower.crane.speed
+agricultural_tower_speed.arm.turn_rate = agricultural_tower_speed.arm.turn_rate * 0.6
+agricultural_tower_speed.arm.extension_speed = agricultural_tower_speed.arm.extension_speed * 0.75
+agricultural_tower_speed.grappler.vertical_turn_rate = agricultural_tower_speed.grappler.vertical_turn_rate * 0.8
+agricultural_tower_speed.grappler.horizontal_turn_rate = agricultural_tower_speed.grappler.horizontal_turn_rate * 0.8
+agricultural_tower_speed.grappler.extension_speed = agricultural_tower_speed.grappler.extension_speed * 0.8
 
 local one_second = 60
 local one_minute = one_second * 60
@@ -53,3 +61,9 @@ data.raw["lab"]["biolab"].inputs = {
 	"cryogenic-science-pack",
 	"promethium-science-pack"
 }
+
+for _,resource in pairs(data.raw["resource"]) do
+	if resource.minable and resource.minable.mining_time then
+		resource.minable.mining_time = resource.minable.mining_time * 1.25
+	end
+end

@@ -18,13 +18,30 @@ table.insert(electronics.effects, {
 	type = "unlock-recipe"
 })
 
-data.raw["technology"]["landfill"].hidden = true
+local automation = data.raw["technology"]["automation"]
+automation.unit.count = 15
+remove_effect(automation, function(effect) return effect.recipe == "long-handed-inserter" end, "recipe \"long-handed-inserter\"")
+table.insert(automation.effects, {
+	recipe = "electronic-circuit",
+	type = "unlock-recipe"
+})
+table.insert(automation.effects, {
+	recipe = "graphite-lubricant",
+	type = "unlock-recipe"
+})
+
+local electric_mining_drill = data.raw["technology"]["electric-mining-drill"]
+electric_mining_drill.prerequisites = { "material-science-pack", "steam-power" }
+electric_mining_drill.unit.count = 15
+electric_mining_drill.unit.ingredients = {
+	{ "material-science-pack", 1 },
+}
 
 local agriculture = data.raw["technology"]["agriculture"]
 agriculture.prerequisites = { "material-science-pack" }
 agriculture.research_trigger = nil
 agriculture.unit = {
-	count = 30,
+	count = 25,
 	ingredients = {
 		{ "material-science-pack", 1 }
 	},
@@ -37,21 +54,17 @@ agriculture.effects = {
 }
 
 data.raw["technology"]["planet-discovery-gleba"].prerequisites = { "space-platform-thruster", "agriculture" }
+data.raw["technology"]["landfill"].hidden = true
+
+data.raw["technology"]["gun-turret"].unit.count = 25
+data.raw["technology"]["stone-wall"].unit.count = 15
+data.raw["technology"]["radar"].unit.count = 25
+data.raw["technology"]["radar"].prerequisites = { "material-science-pack", "electricity" }
+data.raw["technology"]["lamp"].unit.count = 25
 
 
 
 -- early tech
-
-local automation = data.raw["technology"]["automation"]
-remove_effect(automation, function(effect) return effect.recipe == "long-handed-inserter" end, "recipe \"long-handed-inserter\"")
-table.insert(automation.effects, {
-	recipe = "electronic-circuit",
-	type = "unlock-recipe"
-})
-table.insert(automation.effects, {
-	recipe = "graphite-lubricant",
-	type = "unlock-recipe"
-})
 
 local fluid_handling = data.raw["technology"]["fluid-handling"]
 fluid_handling.prerequisites = { "automation" }
@@ -71,12 +84,6 @@ data.raw["technology"]["fish-breeding"].prerequisites = { "agricultural-science-
 data.raw["technology"]["jellynut"].prerequisites = { "planet-discovery-gleba" }
 data.raw["technology"]["yumako"].prerequisites = { "planet-discovery-gleba" }
 
-local electric_mining_drill = data.raw["technology"]["electric-mining-drill"]
-electric_mining_drill.prerequisites = { "material-science-pack", "steam-power" }
-electric_mining_drill.unit.ingredients = {
-	{ "material-science-pack"  , 1 },
-}
-
 data.raw["technology"]["military"].unit.count = 50
 
 data.raw["technology"]["logistics"].unit.count = 25
@@ -84,6 +91,8 @@ data.raw["technology"]["logistics"].unit.count = 25
 
 
 -- early-mid techs
+
+data.raw["technology"]["automobilism"].prerequisites = { "engine" }
 
 local chemical_science_pack = data.raw["technology"]["chemical-science-pack"]
 chemical_science_pack.unit.count = 100
@@ -98,10 +107,9 @@ fast_inserter.unit.count = 75
 fast_inserter.unit.ingredients = {
 	{ "material-science-pack"  , 1 },
 	{ "logistic-science-pack"  , 1 },
-	{ "automation-science-pack", 1 },
-	{ "chemical-science-pack"  , 1 }
+	{ "automation-science-pack", 1 }
 }
-fast_inserter.prerequisites = { "inserter", "chemical-science-pack" }
+fast_inserter.prerequisites = { "long-handed-inserter", "chemical-science-pack" }
 
 local advanced_circuit = data.raw["technology"]["advanced-circuit"]
 advanced_circuit.prerequisites = { "chemical-science-pack", "lubricant", "electronics" }

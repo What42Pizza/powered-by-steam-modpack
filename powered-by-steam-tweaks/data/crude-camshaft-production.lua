@@ -7,6 +7,5 @@ crude_camshaft_production.ingredients = {
 }
 crude_camshaft_production.results = {
 	{ amount = 1, name = "electronic-circuit", probability = 0.15, type = "item" },
-	{ amount = 1, name = "stone"             , probability = 0.4 , type = "item" },
 }
 data:extend{crude_camshaft_production}

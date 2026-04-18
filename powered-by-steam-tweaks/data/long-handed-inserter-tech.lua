@@ -11,12 +11,11 @@ long_handed_inserter_tech.effects = {
 long_handed_inserter_tech.unit = {
 	count = 50,
 	ingredients = {
-		{ "automation-science-pack", 1 },
-		{ "logistic-science-pack", 1 }
+		{ "automation-science-pack", 1 }
 	},
 	time = 15
 }
 long_handed_inserter_tech.prerequisites = {
-	"inserter"
+	"electricity"
 }
 data:extend{long_handed_inserter_tech}

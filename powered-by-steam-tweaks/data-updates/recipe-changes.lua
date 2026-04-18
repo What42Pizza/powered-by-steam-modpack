@@ -24,6 +24,7 @@ data.raw["recipe"]["stone-brick"].energy_required = 4.8
 
 
 local electronic_circuit = data.raw["recipe"]["electronic-circuit"]
+electronic_circuit.energy_required = 2.0
 electronic_circuit.ingredients = {
 	{ amount = 1, name = "iron-cylinder"     , type = "item"  },
 	{ amount = 5, name = "graphite-lubricant", type = "fluid" },
@@ -43,15 +44,20 @@ agricultural_tower.ingredients = {
 	{ amount = 1, name = "landfill"          , type = "item" },
 }
 
+data.raw["recipe"]["wood-processing"].ingredients = {
+	{ amount = 1, name = "wood", type = "item" },
+}
+
 
 
 replace_ingredient_name(data.raw["recipe"]["lab"], "transport-belt", "pipe")
 replace_ingredient_name(data.raw["recipe"]["burner-inserter"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["assembling-machine-1"], "iron-plate", "copper-plate")
-replace_ingredient_name(data.raw["recipe"]["burner-mining-drill"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["inserter"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["steam-engine"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["transport-belt"], "iron-plate", "copper-plate")
+
+--replace_ingredient_name(data.raw["recipe"]["logistic-science-pack"], "inserter", "burner-inserter")
 
 
 

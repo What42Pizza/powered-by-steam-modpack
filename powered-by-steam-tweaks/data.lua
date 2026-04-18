@@ -7,4 +7,3 @@ require("data.material-science-pack")
 
 require("data.electricity-tech")
 require("data.long-handed-inserter-tech")
-require("data.inserter-tech")

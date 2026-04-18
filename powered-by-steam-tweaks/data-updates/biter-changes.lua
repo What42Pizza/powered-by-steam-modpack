@@ -29,3 +29,25 @@ for _,tree in pairs(data.raw["tree"]) do
 	end
 end
 
+
+
+local map_settings = data.raw["map-settings"]["map-settings"]
+local enemy_evolution = map_settings.enemy_evolution
+local enemy_expansion = map_settings.enemy_expansion
+local pollution       = map_settings.pollution
+local one_second = 60
+local one_minute = one_second * 60
+local one_hour   = one_minute * 60
+
+-- increase time-based evolution factor by 2x
+enemy_evolution.time_factor = 8e-06
+
+-- increase expansion rate ~2x
+enemy_expansion.min_expansion_cooldown = 3 * one_minute
+enemy_expansion.max_expansion_cooldown = 25 * one_minute
+
+-- increase min expansion party size 2x
+enemy_expansion.settler_group_min_size = 10
+
+-- increase max threshold for pollution 'redness' on map view by 33%
+pollution.expected_max_per_chunk = 200

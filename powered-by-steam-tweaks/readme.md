@@ -11,7 +11,7 @@ This contains all the custom tweaks for the Powered By Steam overhaul.
 IF YOU WANT TO PLAY THIS MOD, you need to be aware of a few things:
 
 - This makes the game a bit more burner-like
-- This makes enemies stronger and defenses weaker
+- This makes enemies much stronger and defenses much weaker
 - This makes production chains slightly longer and more complex
 
 These changes are based on my personal tastes, which may or may not line up with your own!

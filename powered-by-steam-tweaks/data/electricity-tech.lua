@@ -15,10 +15,14 @@ electricity_tech.effects = {
 	{
 		recipe = "small-electric-pole",
 		type = "unlock-recipe"
+	},
+	{
+		recipe = "inserter",
+		type = "unlock-recipe"
 	}
 }
 electricity_tech.unit = {
-	count = 25,
+	count = 15,
 	ingredients = {
 		{ "automation-science-pack", 1 }
 	},
