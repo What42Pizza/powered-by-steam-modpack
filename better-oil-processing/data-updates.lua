@@ -37,30 +37,19 @@ local plastic_bar_recipe = data.raw["recipe"]["plastic-bar"]
 --plastic_bar_recipe.order = "b[chemistry]-b[hard-plastic-bar]"
 plastic_bar_recipe.icon = "__better-oil-processing__/graphics/icons/hard-plastic-bar-recipe.png"
 plastic_bar_recipe.ingredients = {
-	{
-		amount = 20,
-		name = "petroleum-gas",
-		type = "fluid"
-	},
-	{
-		amount = 5,
-		name = "volatile-gas",
-		type = "fluid"
-	}
+	{ amount = 20, name = "petroleum-gas", type = "fluid" },
+	{ amount = 5, name = "volatile-gas", type = "fluid" },
 }
 
 -- plastics (tech) tweaks
 local plastics_tech = data.raw["technology"]["plastics"]
-table.insert(plastics_tech.effects, {
-	recipe = "soft-plastic-bar",
-	type = "unlock-recipe"
-})
+table.insert(plastics_tech.effects, { recipe = "soft-plastic-bar", type = "unlock-recipe" })
 
 -- add soft plastic to some recipes
-replace_ingredient_name(data.raw["recipe"]["low-density-structure"], "plastic-bar", "soft-plastic-bar")
+replace_ingredient_name(data.raw["recipe"]["low-density-structure"]        , "plastic-bar", "soft-plastic-bar")
 replace_ingredient_name(data.raw["recipe"]["casting-low-density-structure"], "plastic-bar", "soft-plastic-bar")
-replace_ingredient_name(data.raw["recipe"]["superconductor"], "plastic-bar", "soft-plastic-bar")
-replace_ingredient_name(data.raw["recipe"]["tesla-ammo"], "plastic-bar", "soft-plastic-bar")
+replace_ingredient_name(data.raw["recipe"]["superconductor"]               , "plastic-bar", "soft-plastic-bar")
+replace_ingredient_name(data.raw["recipe"]["tesla-ammo"]                   , "plastic-bar", "soft-plastic-bar")
 
 -- oil ocean tweaks
 data.raw["tile"]["oil-ocean-shallow"].fluid = "kerosene"
@@ -71,143 +60,56 @@ data.raw["tile"]["oil-ocean-deep"].fluid = "kerosene"
 -- basic oil processing tweaks
 local basic_oil_processing_recipe = data.raw["recipe"]["basic-oil-processing"]
 basic_oil_processing_recipe.ingredients = {
-	{
-		amount = 25,
-		name = "steam",
-		type = "fluid"
-	},
-	{
-		amount = 100,
-		name = "crude-oil",
-		type = "fluid"
-	}
+	{ amount = 25 , name = "steam"    , type = "fluid" },
+	{ amount = 100, name = "crude-oil", type = "fluid" },
 }
 basic_oil_processing_recipe.results = {
-	{
-		amount = 45,
-		name = "petroleum-gas",
-		fluidbox_index = 3,
-		type = "fluid"
-	},
-	{
-		amount = 20,
-		name = "volatile-gas",
-		fluidbox_index = 4,
-		type = "fluid"
-	}
+	{ amount = 45, name = "petroleum-gas", fluidbox_index = 3, type = "fluid" },
+	{ amount = 20, name = "volatile-gas" , fluidbox_index = 4, type = "fluid" },
 }
 basic_oil_processing_recipe.icon = "__better-oil-processing__/graphics/icons/fluid/basic-oil-processing.png"
 
 -- advanced oil processing tweaks
 local advanced_oil_processing_recipe = data.raw["recipe"]["advanced-oil-processing"]
 advanced_oil_processing_recipe.ingredients = {
-	{
-		amount = 25,
-		name = "steam",
-		type = "fluid"
-	},
-	{
-		amount = 100,
-		name = "crude-oil",
-		type = "fluid"
-	}
+	{ amount = 25 , name = "steam"    , type = "fluid" },
+	{ amount = 100, name = "crude-oil", type = "fluid" },
 }
 advanced_oil_processing_recipe.results = {
-	{
-		amount = 30,
-		name = "hot-tar",
-		type = "fluid"
-	},
-	{
-		amount = 45,
-		name = "kerosene",
-		type = "fluid"
-	},
-	{
-		amount = 55,
-		name = "petroleum-gas",
-		type = "fluid"
-	},
-	{
-		amount = 30,
-		name = "volatile-gas",
-		type = "fluid"
-	}
+	{ amount = 30, name = "hot-tar"      , type = "fluid" },
+	{ amount = 45, name = "kerosene"     , type = "fluid" },
+	{ amount = 55, name = "petroleum-gas", type = "fluid" },
+	{ amount = 30, name = "volatile-gas" , type = "fluid" },
 }
 advanced_oil_processing_recipe.icon = "__better-oil-processing__/graphics/icons/fluid/advanced-oil-processing.png"
 
 -- coal liquefaction recipe tweaks
 local coal_liquefaction_recipe = data.raw["recipe"]["coal-liquefaction"]
 coal_liquefaction_recipe.ingredients = {
-	{
-		amount = 8,
-		name = "coal",
-		type = "item"
-	},
-	{
-		amount = 50,
-		name = "steam",
-		type = "fluid"
-	},
-	{
-		amount = 100,
-		name = "sulfuric-acid",
-		type = "fluid"
-	}
+	{ amount = 8  , name = "coal"         , type = "item"  },
+	{ amount = 50 , name = "steam"        , type = "fluid" },
+	{ amount = 100, name = "sulfuric-acid", type = "fluid" },
 }
 coal_liquefaction_recipe.results = {
-	{
-		amount = 40,
-		name = "hot-tar",
-		type = "fluid"
-	},
-	{
-		amount = 50,
-		name = "petroleum-gas",
-		type = "fluid"
-	},
-	{
-		amount = 75,
-		name = "sulfuric-acid",
-		type = "fluid"
-	}
+	{ amount = 40, name = "hot-tar"      , type = "fluid" },
+	{ amount = 50, name = "petroleum-gas", type = "fluid" },
+	{ amount = 75, name = "sulfuric-acid", type = "fluid" },
 }
 coal_liquefaction_recipe.icon = "__better-oil-processing__/graphics/icons/fluid/coal-liquefaction.png"
 
 -- oil processing tech tweaks
 local oil_processing_tech = data.raw["technology"]["oil-processing"]
-table.insert(oil_processing_tech.effects, {
-	recipe = "coal-coking",
-	type = "unlock-recipe"
-})
-table.insert(oil_processing_tech.effects, {
-	recipe = "volatile-gas-solidification",
-	type = "unlock-recipe"
-})
+table.insert(oil_processing_tech.effects, { recipe = "coal-coking"                , type = "unlock-recipe" })
+table.insert(oil_processing_tech.effects, { recipe = "volatile-gas-solidification", type = "unlock-recipe" })
 
 -- advanced oil processing tech tweaks
 local advanced_oil_processing_tech = data.raw["technology"]["advanced-oil-processing"]
 advanced_oil_processing_tech.effects = {
-	{
-		recipe = "advanced-oil-processing",
-		type = "unlock-recipe"
-	},
-	{
-		recipe = "hot-tar-cracking",
-		type = "unlock-recipe"
-	},
-	{
-		recipe = "kerosene-cracking",
-		type = "unlock-recipe"
-	},
-	{
-		recipe = "petroleum-gas-cracking",
-		type = "unlock-recipe"
-	},
-	{
-		recipe = "solid-fuel-from-kerosene",
-		type = "unlock-recipe"
-	}
+	{ recipe = "advanced-oil-processing" , type = "unlock-recipe" },
+	{ recipe = "hot-tar-cracking"        , type = "unlock-recipe" },
+	{ recipe = "kerosene-cracking"       , type = "unlock-recipe" },
+	{ recipe = "petroleum-gas-cracking"  , type = "unlock-recipe" },
+	{ recipe = "solid-fuel-from-kerosene", type = "unlock-recipe" },
 }
 
 
@@ -215,43 +117,24 @@ advanced_oil_processing_tech.effects = {
 -- lubricant tech tweaks
 local lubricant_tech = data.raw["technology"]["lubricant"]
 lubricant_tech.effects = {
-	{
-		recipe = "hot-tar-refining",
-		type = "unlock-recipe"
-	},
-	{
-		recipe = "lubricant-from-kerosene",
-		type = "unlock-recipe"
-	}
+	{ recipe = "hot-tar-refining"       , type = "unlock-recipe" },
+	{ recipe = "lubricant-from-kerosene", type = "unlock-recipe" },
 }
 
 -- rocket fuel recipe tweaks
 local rocket_fuel_recipe = data.raw["recipe"]["rocket-fuel"]
-replace_ingredient(rocket_fuel_recipe, "light-oil", {
-	amount = 10,
-	name = "kerosene",
-	type = "fluid"
-})
+replace_ingredient(rocket_fuel_recipe, "light-oil", { amount = 10, name = "kerosene", type = "fluid" })
 
 -- acid neutralisation recipe tweaks
 if mods["space-age"] then
 	local acid_neutralisation_recipe = data.raw["recipe"]["acid-neutralisation"]
-	replace_result(acid_neutralisation_recipe, "steam", {
-		amount = 3000,
-		name = "steam",
-		temperature = 500,
-		type = "fluid"
-	})
+	replace_result(acid_neutralisation_recipe, "steam", { amount = 3000, name = "steam", temperature = 500, type = "fluid" })
 end
 
 -- casting steel tweaks
 if mods["space-age"] then
 	local casting_steel_recipe = data.raw["recipe"]["casting-steel"]
-	table.insert(casting_steel_recipe.ingredients, {
-		amount = 1,
-		name = "coke",
-		type = "item"
-	})
+	table.insert(casting_steel_recipe.ingredients, { amount = 1, name = "coke", type = "item" })
 end
 
 
@@ -264,38 +147,19 @@ sulfur_recipe.hidden = true
 -- sulfuric acid tweaks
 local sulfuric_acid_recipe = data.raw["recipe"]["sulfuric-acid"]
 sulfuric_acid_recipe.ingredients = {
-	{
-		amount = 4,
-		name = "sulfur",
-		type = "item"
-	},
-	{
-		amount = 25,
-		name = "water",
-		type = "fluid"
-	}
+	{ amount = 4 , name = "sulfur", type = "item"  },
+	{ amount = 25, name = "water" , type = "fluid" },
 }
 sulfuric_acid_recipe.results = {
-	{
-		amount = 75,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 2,
-		name = "stone",
-		type = "item"
-	}
+	{ amount = 75, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 2 , name = "stone"        , type = "item"  },
 }
 sulfuric_acid_recipe.icon = "__base__/graphics/icons/fluid/sulfuric-acid.png" -- this is needed because there's no longer a single result
 
 -- sulfur tech tweaks
 local sulfur_tech = data.raw["technology"]["sulfur-processing"]
 sulfur_tech.effects = {
-	{
-		recipe = "sulfuric-acid",
-		type = "unlock-recipe"
-	}
+	{ recipe = "sulfuric-acid", type = "unlock-recipe" },
 }
 sulfur_tech.icon = "__base__/graphics/icons/fluid/sulfuric-acid.png"
 sulfur_tech.icon_size = 64
@@ -318,20 +182,12 @@ end
 -- chemical science recipe tweaks
 local chemical_science_pack_recipe = data.raw["recipe"]["chemical-science-pack"]
 chemical_science_pack_recipe.category = "crafting-with-fluid"
-replace_ingredient(chemical_science_pack_recipe, "sulfur", {
-	amount = 300,
-	name = "sulfuric-acid",
-	type = "fluid"
-})
+replace_ingredient(chemical_science_pack_recipe, "sulfur", { amount = 300, name = "sulfuric-acid", type = "fluid" })
 
 -- tungsten plate recipe tweaks
 if mods["space-age"] then
 	local tungsten_plate_recipe = data.raw["recipe"]["tungsten-plate"]
-	table.insert(tungsten_plate_recipe.ingredients, {
-		amount = 1,
-		name = "coke",
-		type = "item"
-	})
+	table.insert(tungsten_plate_recipe.ingredients, { amount = 1, name = "coke", type = "item" })
 end
 
 -- explosives tech tweaks
@@ -343,14 +199,8 @@ explosives_tech.prerequisites = { "military-2" }
 -- flamethrower tweaks
 local flamethrower = data.raw["fluid-turret"]["flamethrower-turret"]
 flamethrower.attack_parameters.fluids = {
-	{
-		type = "crude-oil",
-		damage_modifier = 0.75
-	},
-	{
-		type = "kerosene",
-		damage_modifier = 1.0
-	}
+	{ type = "crude-oil", damage_modifier = 0.75 },
+	{ type = "kerosene" , damage_modifier = 1.0  },
 }
 
 

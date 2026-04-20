@@ -74,7 +74,7 @@ table.insert(fluid_handling.effects, 3, { recipe = "electric-pump", type = "unlo
 data.raw["technology"]["toolbelt"].unit.count = 100
 
 local logistics_2 = data.raw["technology"]["logistics-2"]
-table.insert(logistics_2.prerequisites, "agriculture")
+table.insert(logistics_2.prerequisites, "wood-resin")
 
 data.raw["technology"]["tree-seeding"].hidden = true
 data.raw["technology"]["fish-breeding"].prerequisites = { "agricultural-science-pack" }
@@ -155,6 +155,10 @@ gate.unit.ingredients = {
 
 local inserter_capacity_bonus_1 = data.raw["technology"]["inserter-capacity-bonus-1"]
 inserter_capacity_bonus_1.prerequisites = { "electricity", "automation-science-pack"}
+inserter_capacity_bonus_1.effects = {
+	{ modifier = 1, type = "bulk-inserter-capacity-bonus" },
+	{ modifier = 1, type = "inserter-stack-size-bonus" },
+}
 
 data.raw["technology"]["sulfur-processing"].unit.ingredients = {
 	{ "material-science-pack"  , 1 },
@@ -197,7 +201,9 @@ advanced_circuit.unit.ingredients = {
 	{ "chemical-science-pack"  , 1 },
 }
 
-data.raw["technology"]["battery"].unit.ingredients = {
+local battery = data.raw["technology"]["battery"]
+battery.unit.count = 100
+battery.unit.ingredients = {
 	{ "material-science-pack"  , 1 },
 	{ "logistic-science-pack"  , 1 },
 	{ "automation-science-pack", 1 },
@@ -238,6 +244,14 @@ explosives.unit.ingredients = {
 	{ "material-science-pack"  , 1 },
 	{ "logistic-science-pack"  , 1 },
 	{ "automation-science-pack", 1 },
+	{ "chemical-science-pack"  , 1 },
+}
+
+data.raw["technology"]["flamethrower"].unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+	{ "military-science-pack"  , 1 },
 	{ "chemical-science-pack"  , 1 },
 }
 

@@ -99,17 +99,17 @@ biolab.science_pack_drain_rate_percent = 75
 
 
 -- inserters
-function update_bulk_inserter_size_increase(tech)
-	for _,effect in ipairs(tech.effects) do
-		if effect.type == "bulk-inserter-capacity-bonus" then
-			effect.modifier = 1
-		end
-	end
-end
-remove_effect(data.raw["technology"]["inserter-capacity-bonus-7"], function(effect) return effect.type == "inserter-stack-size-bonus" end)
+--remove_effect(data.raw["technology"]["inserter-capacity-bonus-7"], function(effect) return effect.type == "inserter-stack-size-bonus" end)
 local stack_inserter = data.raw["inserter"]["stack-inserter"]
 stack_inserter.stack_size_bonus = 3
 stack_inserter.max_belt_stack_size = 3
+for _,effect in ipairs(data.raw["technology"]["stack-inserter"].effects) do
+	if effect.type == "belt-stack-size-bonus" then
+		effect.modifier = 2
+	end
+end
+data.raw["technology"]["transport-belt-capacity-1"].hidden = true
+data.raw["technology"]["transport-belt-capacity-2"].hidden = true
 
 
 

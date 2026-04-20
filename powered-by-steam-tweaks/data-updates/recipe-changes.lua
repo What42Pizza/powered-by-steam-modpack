@@ -37,7 +37,7 @@ advanced_circuit.ingredients = {
 	{ amount = 10, name = "lubricant"         , type = "fluid" },
 	{ amount = 1 , name = "soft-plastic-bar"  , type = "item"  },
 }
-advanced_circuit.result = {
+advanced_circuit.results = {
 	{ amount = 2, name = "advanced-circuit", type = "item" }
 }
 
@@ -50,6 +50,12 @@ agricultural_tower.ingredients = {
 
 data.raw["recipe"]["wood-processing"].ingredients = {
 	{ amount = 1, name = "wood", type = "item" },
+}
+
+data.raw["recipe"]["fast-transport-belt"].ingredients = {
+	{ amount = 5, name = "iron-gear-wheel", type = "item" },
+	{ amount = 1, name = "transport-belt" , type = "item" },
+	{ amount = 1, name = "wood-resin"     , type = "item" },
 }
 
 

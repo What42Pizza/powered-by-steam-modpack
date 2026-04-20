@@ -25,23 +25,11 @@ soft_plastic_bar_recipe.name = "soft-plastic-bar"
 --soft_plastic_bar_recipe.order = "b[chemistry]-b[soft-plastic-bar]"
 soft_plastic_bar_recipe.icon = "__better-oil-processing__/graphics/icons/soft-plastic-bar-recipe.png"
 soft_plastic_bar_recipe.ingredients = {
-	{
-		amount = 20,
-		name = "kerosene",
-		type = "fluid"
-	},
-	{
-		amount = 1,
-		name = "sulfur",
-		type = "item"
-	}
+	{ amount = 20, name = "kerosene", type = "fluid" },
+	{ amount = 1 , name = "sulfur"  , type = "item"  },
 }
 soft_plastic_bar_recipe.results = {
-	{
-		amount = 2,
-		name = "soft-plastic-bar",
-		type = "item"
-	}
+	{ amount = 2, name = "soft-plastic-bar", type = "item" },
 }
 data:extend{soft_plastic_bar_recipe}
 
@@ -58,23 +46,11 @@ local asphalt_recipe = table.deepcopy(data.raw["recipe"]["concrete"])
 asphalt_recipe.name = "asphalt"
 asphalt_recipe.energy_required = 8.0
 asphalt_recipe.ingredients = {
-	{
-		amount = 25,
-		name = "stone",
-		type = "item"
-	},
-	{
-		amount = 200,
-		name = "hot-tar",
-		type = "fluid"
-	}
+	{ amount = 25, name = "stone"   , type = "item"  },
+	{ amount = 200, name = "hot-tar", type = "fluid" },
 }
 asphalt_recipe.results = {
-	{
-		amount = 10,
-		name = "asphalt",
-		type = "item"
-	}
+	{ amount = 10, name = "asphalt", type = "item" },
 }
 data:extend{asphalt_recipe}
 
@@ -83,10 +59,7 @@ local asphalt_tech = table.deepcopy(data.raw["technology"]["concrete"])
 asphalt_tech.name = "asphalt"
 asphalt_tech.icon = "__better-oil-processing__/graphics/technology/asphalt.png"
 asphalt_tech.effects = {
-	{
-		recipe = "asphalt",
-		type = "unlock-recipe"
-	}
+	{ recipe = "asphalt", type = "unlock-recipe" },
 }
 asphalt_tech.prerequisites = {
 	"advanced-oil-processing",
@@ -95,8 +68,8 @@ asphalt_tech.unit = {
 	count = 200,
 	ingredients = {
 		{ "automation-science-pack", 1 },
-		{ "logistic-science-pack", 1 },
-		{ "chemical-science-pack", 1 }
+		{ "logistic-science-pack" , 1 },
+		{ "chemical-science-pack" , 1 },
 	},
 	time = 30
 }
@@ -137,7 +110,7 @@ sulfur_autoplace_control.localised_name = {
 	"[entity=sulfur] ",
 	{
 		"entity-name.sulfur"
-	}
+	},
 }
 data:extend{sulfur_autoplace_control}
 
@@ -227,38 +200,14 @@ hot_tar_refining.name = "hot-tar-refining"
 hot_tar_refining.order = "b[fluid-chemistry]-a[hot-tar-refining]"
 hot_tar_refining.energy_required = 1.25
 hot_tar_refining.ingredients = {
-	{
-		amount = 100,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 40,
-		name = "hot-tar",
-		type = "fluid"
-	}
+	{ amount = 100, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 40, name = "hot-tar", type = "fluid" },
 }
 hot_tar_refining.results = {
-	{
-		amount = 35,
-		name = "lubricant",
-		type = "fluid"
-	},
-	{
-		amount = 75,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 10,
-		name = "volatile-gas",
-		type = "fluid"
-	},
-	{
-		amount = 1,
-		name = "coke",
-		type = "item"
-	}
+	{ amount = 35, name = "lubricant"    , type = "fluid" },
+	{ amount = 75, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 10, name = "volatile-gas" , type = "fluid" },
+	{ amount = 1 , name = "coke"         , type = "item" },
 }
 hot_tar_refining.icon = "__better-oil-processing__/graphics/icons/fluid/hot-tar-refining.png"
 data:extend{hot_tar_refining}
@@ -280,38 +229,14 @@ hot_tar_cracking.name = "hot-tar-cracking"
 hot_tar_cracking.order = "b[fluid-chemistry]-ba[hot-tar-cracking]"
 hot_tar_cracking.energy_required = 0.75
 hot_tar_cracking.ingredients = {
-	{
-		amount = 100,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 40,
-		name = "hot-tar",
-		type = "fluid"
-	}
+	{ amount = 100, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 40 , name = "hot-tar"      , type = "fluid" },
 }
 hot_tar_cracking.results = {
-	{
-		amount = 30,
-		name = "kerosene",
-		type = "fluid"
-	},
-	{
-		amount = 75,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 10,
-		name = "volatile-gas",
-		type = "fluid"
-	},
-	{
-		amount = 1,
-		name = "coke",
-		type = "item"
-	}
+	{ amount = 30, name = "kerosene"     , type = "fluid" },
+	{ amount = 75, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 10, name = "volatile-gas" , type = "fluid" },
+	{ amount = 1 , name = "coke"         , type = "item"  },
 }
 hot_tar_cracking.icon = "__better-oil-processing__/graphics/icons/fluid/hot-tar-cracking.png"
 data:extend{hot_tar_cracking}
@@ -322,33 +247,13 @@ kerosene_cracking.name = "kerosene-cracking"
 kerosene_cracking.order = "b[fluid-chemistry]-bb[kerosene-cracking]"
 kerosene_cracking.energy_required = 0.75
 kerosene_cracking.ingredients = {
-	{
-		amount = 100,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 50,
-		name = "kerosene",
-		type = "fluid"
-	}
+	{ amount = 100, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 50 , name = "kerosene"     , type = "fluid" },
 }
 kerosene_cracking.results = {
-	{
-		amount = 40,
-		name = "petroleum-gas",
-		type = "fluid"
-	},
-	{
-		amount = 75,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 10,
-		name = "volatile-gas",
-		type = "fluid"
-	}
+	{ amount = 40, name = "petroleum-gas", type = "fluid" },
+	{ amount = 75, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 10, name = "volatile-gas" , type = "fluid" },
 }
 kerosene_cracking.icon = "__better-oil-processing__/graphics/icons/fluid/kerosene-cracking.png"
 data:extend{kerosene_cracking}
@@ -359,28 +264,12 @@ petroleum_gas_cracking.name = "petroleum-gas-cracking"
 petroleum_gas_cracking.order = "b[fluid-chemistry]-bc[petroleum-gas-cracking]"
 petroleum_gas_cracking.energy_required = 0.75
 petroleum_gas_cracking.ingredients = {
-	{
-		amount = 100,
-		name = "sulfuric-acid",
-		type = "fluid"
-	},
-	{
-		amount = 60,
-		name = "petroleum-gas",
-		type = "fluid"
-	}
+	{ amount = 100, name = "sulfuric-acid", type = "fluid" },
+	{ amount = 60, name = "petroleum-gas" , type = "fluid" },
 }
 petroleum_gas_cracking.results = {
-	{
-		amount = 30,
-		name = "volatile-gas",
-		type = "fluid"
-	},
-	{
-		amount = 75,
-		name = "sulfuric-acid",
-		type = "fluid"
-	}
+	{ amount = 30, name = "volatile-gas" , type = "fluid" },
+	{ amount = 75, name = "sulfuric-acid", type = "fluid" },
 }
 petroleum_gas_cracking.icon = "__better-oil-processing__/graphics/icons/fluid/petroleum-gas-cracking.png"
 data:extend{petroleum_gas_cracking}
@@ -391,11 +280,7 @@ data:extend{petroleum_gas_cracking}
 local solid_fuel_from_kerosene = table.deepcopy(data.raw["recipe"]["solid-fuel-from-heavy-oil"])
 solid_fuel_from_kerosene.name = "solid-fuel-from-kerosene"
 solid_fuel_from_kerosene.ingredients = {
-	{
-		amount = 30,
-		name = "kerosene",
-		type = "fluid"
-	}
+	{ amount = 30, name = "kerosene", type = "fluid" },
 }
 solid_fuel_from_kerosene.order = "b[fluid-chemistry]-e[solid-fuel-from-kerosene]"
 data:extend{solid_fuel_from_kerosene}
@@ -404,24 +289,16 @@ data:extend{solid_fuel_from_kerosene}
 local volatile_gas_solidification = table.deepcopy(data.raw["recipe"]["solid-fuel-from-petroleum-gas"])
 volatile_gas_solidification.name = "volatile-gas-solidification"
 volatile_gas_solidification.ingredients = {
-	{
-		amount = 50,
-		name = "volatile-gas",
-		type = "fluid"
-	}
+	{ amount = 50, name = "volatile-gas", type = "fluid" },
 }
 volatile_gas_solidification.results = {
-	{
-		amount = 1,
-		name = "coke",
-		type = "item"
-	}
+	{ amount = 1, name = "coke", type = "item" },
 }
 volatile_gas_solidification.crafting_machine_tint = {
 	primary    = { r = 1.000, g = 0.908, b = 0.400, a = 1 },
 	quaternary = { r = 0.969, g = 0.950, b = 0.419, a = 1 },
 	secondary  = { r = 1.000, g = 0.802, b = 0.572, a = 1 },
-	tertiary   = { r = 0.876, g = 0.819, b = 0.797, a = 1 }
+	tertiary   = { r = 0.876, g = 0.819, b = 0.797, a = 1 },
 }
 volatile_gas_solidification.order = "b[fluid-chemistry]-e[volatile-gas-solidification]"
 volatile_gas_solidification.icon = "__better-oil-processing__/graphics/icons/fluid/volatile-gas-solidification.png"
@@ -436,29 +313,17 @@ coal_coking.icon = "__better-oil-processing__/graphics/icons/coke.png"
 coal_coking.order = "c[oil-products]-b[coal-coking]"
 coal_coking.energy_required = 4.0
 coal_coking.ingredients = {
-	{
-		amount = 3,
-		name = "coal",
-		type = "item"
-	}
+	{ amount = 3, name = "coal", type = "item" },
 }
 coal_coking.results = {
-	{
-		amount = 1,
-		name = "coke",
-		type = "item"
-	},
-	{
-		amount = 5,
-		name = "volatile-gas",
-		type = "fluid"
-	}
+	{ amount = 1, name = "coke"        , type = "item" },
+	{ amount = 5, name = "volatile-gas", type = "fluid" },
 }
 coal_coking.crafting_machine_tint = {
 	primary    = { r = 1.000, g = 0.908, b = 0.400, a = 1 },
 	quaternary = { r = 0.969, g = 0.950, b = 0.419, a = 1 },
 	secondary  = { r = 1.000, g = 0.802, b = 0.572, a = 1 },
-	tertiary   = { r = 0.876, g = 0.819, b = 0.797, a = 1 }
+	tertiary   = { r = 0.876, g = 0.819, b = 0.797, a = 1 },
 }
 coal_coking.icon = "__better-oil-processing__/graphics/icons/fluid/coal-coking.png"
 data:extend{coal_coking}
