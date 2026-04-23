@@ -6,3 +6,5 @@ make rails stack higher?
 nerf nuclear power (both reactor and boilers)
 make locomotives louder?
 add cooked fish?
+incorporate https://mods.factorio.com/mod/train-trashtalk?
+recolor elevated rails, similar to https://mods.factorio.com/mod/elevated-rails-recolor?from=updated?

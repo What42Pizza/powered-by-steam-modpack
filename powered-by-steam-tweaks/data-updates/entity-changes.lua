@@ -19,11 +19,6 @@ table.insert(assembling_machine_1.crafting_categories, "organic-or-assembling")
 assembling_machine_1.fluid_boxes = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"].fluid_boxes)
 assembling_machine_1.fluid_boxes_off_when_no_fluid_recipe = true
 
-data.raw["cargo-wagon"]["cargo-wagon"].inventory_size = 80
-if mods["Mini_Trains"] then
-	data.raw["cargo-wagon"]["mini-cargo-wagon"].inventory_size = 40
-end
-
 local agricultural_tower = data.raw["agricultural-tower"]["agricultural-tower"]
 local agricultural_tower_speed = agricultural_tower.crane.speed
 agricultural_tower_speed.arm.turn_rate = agricultural_tower_speed.arm.turn_rate * 0.6
@@ -58,10 +53,14 @@ for _,tree in pairs(data.raw["tree"]) do
 	end
 end
 
+data.raw["cargo-wagon"]["cargo-wagon"].inventory_size = 80
+data.raw["fluid-wagon"]["fluid-wagon"].inventory_size = 75000
+
 if mods["Mini_Trains"] then
 	
 	local mini_locomotive = data.raw["locomotive"]["mini-locomotive"]
-	mini_locomotive.max_power = "120kW"
+	mini_locomotive.max_power = "100kW"
+	mini_locomotive.energy_source.effectivity = 0.5
 	mini_locomotive.air_resistance = 0.0025
 	mini_locomotive.friction = 0.075
 	mini_locomotive.braking_force = 1
@@ -70,10 +69,12 @@ if mods["Mini_Trains"] then
 	mini_fluid_wagon.air_resistance = 0.0025
 	mini_fluid_wagon.friction = 0.075
 	mini_fluid_wagon.braking_force = 1
+	mini_fluid_wagon.capacity = 50000
 	
 	local mini_cargo_wagon = data.raw["cargo-wagon"]["mini-cargo-wagon"]
 	mini_cargo_wagon.air_resistance = 0.0025
 	mini_cargo_wagon.friction = 0.075
 	mini_cargo_wagon.braking_force = 1
+	mini_cargo_wagon.inventory_size = 40
 	
 end

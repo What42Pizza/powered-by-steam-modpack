@@ -12,6 +12,32 @@ data.raw["recipe"]["lab"].ingredients = {
 	{ amount = 4 , name = "pipe"              , type = "item" },
 }
 
+data.raw["recipe"]["iron-chest"].ingredients = {
+	{ amount = 4, name = "iron-plate", type = "item" },
+}
+data.raw["recipe"]["pipe-to-ground"].ingredients = {
+	{ amount = 2, name = "iron-plate", type = "item" },
+	{ amount = 8, name = "pipe"      , type = "item" },
+}
+data.raw["recipe"]["electric-mining-drill"].ingredients = {
+	{ amount = 8, name = "iron-plate"        , type = "item" },
+	{ amount = 5, name = "iron-gear-wheel"   , type = "item" },
+	{ amount = 3, name = "electronic-circuit", type = "item" },
+}
+data.raw["recipe"]["transport-belt"].ingredients = {
+	{ amount = 1, name = "copper-plate"   , type = "item" },
+	{ amount = 1, name = "iron-gear-wheel", type = "item" },
+}
+data.raw["recipe"]["underground-belt"].ingredients = {
+	{ amount = 4, name = "copper-plate"      , type = "item" },
+	{ amount = 4, name = "transport-belt"    , type = "item" },
+}
+data.raw["recipe"]["splitter"].ingredients = {
+	{ amount = 4, name = "copper-plate"      , type = "item" },
+	{ amount = 3, name = "electronic-circuit", type = "item" },
+	{ amount = 2, name = "transport-belt"    , type = "item" },
+}
+
 
 
 data.raw["recipe"]["pipe"].enabled = true
@@ -56,8 +82,12 @@ data.raw["recipe"]["wood-processing"].ingredients = {
 data.raw["recipe"]["fast-transport-belt"].ingredients = {
 	{ amount = 5, name = "iron-gear-wheel", type = "item" },
 	{ amount = 1, name = "transport-belt" , type = "item" },
-	{ amount = 1, name = "wood-resin"     , type = "item" },
+	{ amount = 1, name = "resin"     , type = "item" },
 }
+table.insert(data.raw["recipe"]["fast-underground-belt"].ingredients, { amount = 1, name = "resin", type = "item" })
+table.insert(data.raw["recipe"]["fast-splitter"].ingredients        , { amount = 1, name = "resin", type = "item" })
+
+table.insert(data.raw["recipe"]["fast-inserter"].ingredients, { amount = 1, name = "resin", type = "item" })
 
 
 
@@ -65,7 +95,6 @@ replace_ingredient_name(data.raw["recipe"]["lab"], "transport-belt", "pipe")
 replace_ingredient_name(data.raw["recipe"]["burner-inserter"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["inserter"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["steam-engine"], "iron-plate", "copper-plate")
-replace_ingredient_name(data.raw["recipe"]["transport-belt"], "iron-plate", "copper-plate")
 
 --replace_ingredient_name(data.raw["recipe"]["logistic-science-pack"], "inserter", "burner-inserter")
 
@@ -91,10 +120,21 @@ engine.ingredients = {
 }
 
 local rail = data.raw["recipe"]["rail"]
-find_remove(rail.ingredients, function(v) return v.name == "iron-stick" end)
+replace_ingredient_name(rail, "iron-stick", "wood")
 rail.results[1].amount = 3
 
 
+
+local hard_plastic_bar = data.raw["recipe"]["plastic-bar"]
+hard_plastic_bar.ingredients = {
+	{ amount = 20, name = "petroleum-gas", type = "fluid" },
+	{ amount = 1 , name = "resin"        , type = "item"  },
+}
+local soft_plastic_bar = data.raw["recipe"]["soft-plastic-bar"]
+soft_plastic_bar.ingredients = {
+	{ amount = 20, name = "kerosene", type = "fluid" },
+	{ amount = 1 , name = "resin"   , type = "item"  },
+}
 
 local automation_science_pack = data.raw["recipe"]["automation-science-pack"]
 automation_science_pack.ingredients = {
@@ -112,7 +152,7 @@ chemical_science_pack.ingredients = {
 }
 
 local military_science_pack = data.raw["recipe"]["military-science-pack"]
-replace_ingredient(military_science_pack, "piercing-rounds-magazine", { amount = 3, name = "firearm-magazine", type = "item" })
+replace_ingredient(military_science_pack, "piercing-rounds-magazine", { amount = 5, name = "firearm-magazine", type = "item" })
 table.insert(military_science_pack.ingredients, 2, { amount = 1, name = "steel-plate", type = "item" })
 
 local defender_capsule = data.raw["recipe"]["defender-capsule"]

@@ -135,11 +135,11 @@ sulfur_resource.name = "sulfur"
 sulfur_resource.autoplace = resource_autoplace.resource_autoplace_settings{
 	name = "sulfur",
 	order = "b-z",
-	base_density = 2.5,
+	base_density = 2.0,
 	base_spots_per_km2 = 1.0,
 	has_starting_area_placement = false,
-	regular_rq_factor_multiplier = 1.2,
-	starting_rq_factor_multiplier = 1.7,
+	regular_rq_factor_multiplier = 1.0,
+	starting_rq_factor_multiplier = 1.3,
 	additional_richness = 500
 }
 sulfur_resource.factoriopedia_simulation.init = string.gsub(sulfur_resource.factoriopedia_simulation.init, "coal", "sulfur")

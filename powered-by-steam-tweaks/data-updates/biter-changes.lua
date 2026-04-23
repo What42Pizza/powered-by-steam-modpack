@@ -43,6 +43,12 @@ end
 
 
 
+-- increase magazine size
+data.raw["ammo"]["firearm-magazine"].magazine_size = 12
+data.raw["ammo"]["piercing-rounds-magazine"].magazine_size = 12
+
+
+
 local map_settings = data.raw["map-settings"]["map-settings"]
 local enemy_evolution = map_settings.enemy_evolution
 local enemy_expansion = map_settings.enemy_expansion

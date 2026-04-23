@@ -78,7 +78,7 @@ oil_gathering.prerequisites = { "logistic-science-pack", "fluid-handling" }
 oil_gathering.unit.count = 50
 
 local logistics_2 = data.raw["technology"]["logistics-2"]
-table.insert(logistics_2.prerequisites, "wood-resin")
+table.insert(logistics_2.prerequisites, "resin")
 
 data.raw["technology"]["tree-seeding"].hidden = true
 data.raw["technology"]["fish-breeding"].prerequisites = { "agricultural-science-pack" }
@@ -127,7 +127,7 @@ fast_inserter.unit.ingredients = {
 data.raw["technology"]["automobilism"].prerequisites = { "engine" }
 
 local chemical_science_pack = data.raw["technology"]["chemical-science-pack"]
-chemical_science_pack.prerequisites = { "plastics", "sulfur-processing", "automation-science-pack" }
+chemical_science_pack.prerequisites = { "plastics", "sulfur-processing", "advanced-oil-processing" }
 chemical_science_pack.unit.count = 100
 chemical_science_pack.unit.ingredients = {
 	{ "material-science-pack"  , 1 },
@@ -206,6 +206,41 @@ asphalt.unit.ingredients = {
 local advanced_circuit = data.raw["technology"]["advanced-circuit"]
 advanced_circuit.prerequisites = { "electronics", "lubricant", "plastics" }
 advanced_circuit.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+
+local modules = data.raw["technology"]["modules"]
+modules.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+local efficiency_module = data.raw["technology"]["efficiency-module"]
+efficiency_module.unit.count = 150
+efficiency_module.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+local productivity_module = data.raw["technology"]["productivity-module"]
+productivity_module.unit.count = 150
+productivity_module.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+local quality_module = data.raw["technology"]["quality-module"]
+quality_module.unit.count = 150
+quality_module.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+local speed_module = data.raw["technology"]["speed-module"]
+speed_module.unit.count = 150
+speed_module.unit.ingredients = {
 	{ "material-science-pack"  , 1 },
 	{ "logistic-science-pack"  , 1 },
 	{ "automation-science-pack", 1 },
@@ -387,12 +422,12 @@ data.raw["technology"]["braking-force-5"].hidden = true
 data.raw["technology"]["braking-force-6"].hidden = true
 data.raw["technology"]["braking-force-7"].hidden = true
 
-data.raw["technology"]["research-speed-1"].hidden = true
-data.raw["technology"]["research-speed-2"].hidden = true
-data.raw["technology"]["research-speed-3"].hidden = true
-data.raw["technology"]["research-speed-4"].hidden = true
-data.raw["technology"]["research-speed-5"].hidden = true
-data.raw["technology"]["research-speed-6"].hidden = true
+--data.raw["technology"]["research-speed-1"].hidden = true
+--data.raw["technology"]["research-speed-2"].hidden = true
+--data.raw["technology"]["research-speed-3"].hidden = true
+--data.raw["technology"]["research-speed-4"].hidden = true
+--data.raw["technology"]["research-speed-5"].hidden = true
+--data.raw["technology"]["research-speed-6"].hidden = true
 
 data.raw["technology"]["laser"].hidden = true
 data.raw["technology"]["laser-turret"].hidden = true

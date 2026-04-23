@@ -1,3 +1,5 @@
+-- note: this file is disabled
+
 local dried_wood_resin_item = {
 	name = "dried-wood-resin",
 	icon = "__powered-by-steam-tweaks__/graphics/icons/dried-wood-resin.png",

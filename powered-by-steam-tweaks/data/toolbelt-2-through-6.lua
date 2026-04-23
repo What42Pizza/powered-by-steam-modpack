@@ -3,7 +3,7 @@ toolbelt_2.skip_material_science_tweaks = true
 toolbelt_2.name = "toolbelt-2"
 toolbelt_2.prerequisites = { "toolbelt" }
 toolbelt_2.unit = {
-	count = 25,
+	count = 20,
 	ingredients = {
 		{ "material-science-pack", 1 },
 	},
@@ -16,7 +16,7 @@ toolbelt_3.skip_material_science_tweaks = true
 toolbelt_3.name = "toolbelt-3"
 toolbelt_3.prerequisites = { "toolbelt-2" }
 toolbelt_3.unit = {
-	count = 30,
+	count = 25,
 	ingredients = {
 		{ "material-science-pack", 1 },
 		{ "logistic-science-pack", 1 },
@@ -30,11 +30,10 @@ toolbelt_4.skip_material_science_tweaks = true
 toolbelt_4.name = "toolbelt-4"
 toolbelt_4.prerequisites = { "toolbelt-3" }
 toolbelt_4.unit = {
-	count = 50,
+	count = 30,
 	ingredients = {
 		{ "material-science-pack"  , 1 },
 		{ "logistic-science-pack"  , 1 },
-		{ "automation-science-pack", 1 },
 	},
 	time = 30,
 }
@@ -45,12 +44,11 @@ toolbelt_5.skip_material_science_tweaks = true
 toolbelt_5.name = "toolbelt-5"
 toolbelt_5.prerequisites = { "toolbelt-4" }
 toolbelt_5.unit = {
-	count = 50,
+	count = 40,
 	ingredients = {
 		{ "material-science-pack"  , 1 },
 		{ "logistic-science-pack"  , 1 },
 		{ "automation-science-pack", 1 },
-		{ "chemical-science-pack"  , 1 },
 	},
 	time = 30,
 }
