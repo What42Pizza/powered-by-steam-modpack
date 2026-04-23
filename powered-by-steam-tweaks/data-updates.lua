@@ -1,6 +1,7 @@
 require("utils")
 require("from-krastorio-2")
 
+require("data-updates.inventory-size-changes")
 require("data-updates.recipe-changes")
 require("data-updates.material-science-changes")
 require("data-updates.tech-changes")

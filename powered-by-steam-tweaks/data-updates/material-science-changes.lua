@@ -1,9 +1,12 @@
--- swap red science ingredients with material science ingredients & insert red science before chem/military science ingredients
+-- swap red science ingredients with material science ingredients
+-- also insert red science before chem/military science ingredients
 for _,tech in pairs(data.raw.technology) do
-	local unit = tech.unit
-	if unit and unit.ingredients and #unit.ingredients > 0 then
-		if unit.ingredients[1][1] == "automation-science-pack" then unit.ingredients[1][1] = "material-science-pack" end
-		if #unit.ingredients > 2 then table.insert(unit.ingredients, 3, { "automation-science-pack", 1 }) end
+	if not tech.skip_material_science_tweaks then
+		local unit = tech.unit
+		if unit and unit.ingredients and #unit.ingredients > 0 then
+			if unit.ingredients[1][1] == "automation-science-pack" then unit.ingredients[1][1] = "material-science-pack" end
+			if #unit.ingredients > 2 then table.insert(unit.ingredients, 3, { "automation-science-pack", 1 }) end
+		end
 	end
 end
 

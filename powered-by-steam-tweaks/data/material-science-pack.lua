@@ -5,9 +5,9 @@ data:extend{material_science_pack_tool}
 local material_science_pack_recipe = table.deepcopy(data.raw["recipe"]["automation-science-pack"])
 material_science_pack_recipe.name = "material-science-pack"
 material_science_pack_recipe.ingredients = {
-	{ amount = 1, name = "copper-plate"   , type = "item" },
-	{ amount = 1, name = "iron-gear-wheel", type = "item" },
-	{ amount = 1, name = "wood"           , type = "item" }
+	{ amount = 1, name = "copper-plate", type = "item" },
+	{ amount = 1, name = "stone"       , type = "item" },
+	{ amount = 1, name = "wood"        , type = "item" }
 }
 material_science_pack_recipe.results = {
 	{ amount = 1, name = "material-science-pack", type = "item" }

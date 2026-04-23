@@ -1,6 +1,4 @@
-local character = data.raw["character"]["character"]
-character.running_speed = 0.17 -- up from 0.15
-character.inventory_size = 100 -- up from 80
+data.raw["character"]["character"].running_speed = 0.17
 
 data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 1.0 / 2.4 * 1.25
 data.raw["mining-drill"]["electric-mining-drill"].mining_speed = 0.6
@@ -39,39 +37,43 @@ local one_minute = one_second * 60
 local one_hour = one_minute * 60
 data.raw["capsule"]["raw-fish"].spoil_ticks = 30 * one_minute
 
-data.raw["lab"]["lab"].inputs = {
-	"material-science-pack",
-	"logistic-science-pack",
-	"automation-science-pack",
-	"military-science-pack",
-	"chemical-science-pack",
-	"production-science-pack",
-	"utility-science-pack",
-	"space-science-pack",
-	"metallurgic-science-pack",
-	"agricultural-science-pack",
-	"electromagnetic-science-pack",
-	"cryogenic-science-pack",
-	"promethium-science-pack"
-}
-data.raw["lab"]["biolab"].inputs = {
-	"material-science-pack",
-	"logistic-science-pack",
-	"automation-science-pack",
-	"military-science-pack",
-	"chemical-science-pack",
-	"production-science-pack",
-	"utility-science-pack",
-	"space-science-pack",
-	"metallurgic-science-pack",
-	"agricultural-science-pack",
-	"electromagnetic-science-pack",
-	"cryogenic-science-pack",
-	"promethium-science-pack"
-}
+table.insert(data.raw["lab"]["lab"]   .inputs, 1, "material-science-pack")
+table.insert(data.raw["lab"]["biolab"].inputs, 1, "material-science-pack")
 
 for _,resource in pairs(data.raw["resource"]) do
 	if resource.minable and resource.minable.mining_time then
 		resource.minable.mining_time = resource.minable.mining_time * 1.25
 	end
+end
+
+for _,tree in pairs(data.raw["tree"]) do
+	tree.max_health = tree.max_health * 0.8
+	if tree.minable then
+		if tree.minable.results and tree.minable.results[1] and tree.minable.results[1].name == "wood" and tree.minable.results[1].amount then
+			tree.minable.results[1].amount = tree.minable.results[1].amount * 1.5
+		end
+		if tree.minable.result == "wood" and tree.minable.count then
+			tree.minable.count = tree.minable.count * 1.5
+		end
+	end
+end
+
+if mods["Mini_Trains"] then
+	
+	local mini_locomotive = data.raw["locomotive"]["mini-locomotive"]
+	mini_locomotive.max_power = "120kW"
+	mini_locomotive.air_resistance = 0.0025
+	mini_locomotive.friction = 0.075
+	mini_locomotive.braking_force = 1
+	
+	local mini_fluid_wagon = data.raw["fluid-wagon"]["mini-fluid-wagon"]
+	mini_fluid_wagon.air_resistance = 0.0025
+	mini_fluid_wagon.friction = 0.075
+	mini_fluid_wagon.braking_force = 1
+	
+	local mini_cargo_wagon = data.raw["cargo-wagon"]["mini-cargo-wagon"]
+	mini_cargo_wagon.air_resistance = 0.0025
+	mini_cargo_wagon.friction = 0.075
+	mini_cargo_wagon.braking_force = 1
+	
 end

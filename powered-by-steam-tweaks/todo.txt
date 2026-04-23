@@ -1,8 +1,8 @@
 add an alternative better recipe for steel that takes coke instead of coal
-add a very easy way to get spoilage?
 slightly decrease locomotive acceleration
 make rocket fuel into a fluid
 add seeds to compost recipes
 make rails stack higher?
 nerf nuclear power (both reactor and boilers)
 make locomotives louder?
+add cooked fish?

@@ -50,7 +50,7 @@ addSteamPower(data.raw["mining-drill"]["pumpjack"], pipeConnections_LR_3)
 addSteamPower(data.raw["assembling-machine"]["assembling-machine-1"], pipeConnections_LR_3)
 addSteamPower(data.raw["assembling-machine"]["assembling-machine-2"], pipeConnections_LR_3)
 addSteamPower(data.raw["assembling-machine"]["assembling-machine-3"], pipeConnections_LR_3)
-addSteamPower(data.raw["agricultural-tower"]["agricultural-tower"]  , pipeConnections_LR_3)
+addSteamPower(data.raw["agricultural-tower"]["agricultural-tower"]  , pipeConnections_LRTB_3)
 addSteamPower(data.raw["assembling-machine"]["chemical-plant"]      , pipeConnections_LR_3)
 addSteamPower(data.raw["assembling-machine"]["oil-refinery"]        , pipeConnections_LR_5)
 

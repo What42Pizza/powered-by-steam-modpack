@@ -18,7 +18,6 @@ remove_effect_recipe(electronics, "electronic-circuit")
 table.insert(electronics.effects, { recipe = "crude-camshaft-production", type = "unlock-recipe" })
 
 local automation = data.raw["technology"]["automation"]
-automation.unit.count = 15
 remove_effect_recipe(automation, "long-handed-inserter")
 table.insert(automation.effects, { recipe = "electronic-circuit", type = "unlock-recipe" })
 table.insert(automation.effects, { recipe = "graphite-lubricant", type = "unlock-recipe" })
@@ -38,7 +37,7 @@ local agriculture = data.raw["technology"]["agriculture"]
 agriculture.prerequisites = { "material-science-pack" }
 agriculture.research_trigger = nil
 agriculture.unit = {
-	count = 25,
+	count = 20,
 	ingredients = {
 		{ "material-science-pack", 1 }
 	},
@@ -78,8 +77,6 @@ local oil_gathering = data.raw["technology"]["oil-gathering"]
 oil_gathering.prerequisites = { "logistic-science-pack", "fluid-handling" }
 oil_gathering.unit.count = 50
 
-data.raw["technology"]["toolbelt"].unit.count = 100
-
 local logistics_2 = data.raw["technology"]["logistics-2"]
 table.insert(logistics_2.prerequisites, "wood-resin")
 
@@ -115,6 +112,14 @@ data.raw["technology"]["plastics"].unit.ingredients = {
 	{ "logistic-science-pack"  , 1 },
 }
 
+local fast_inserter = data.raw["technology"]["fast-inserter"]
+fast_inserter.prerequisites = { "long-handed-inserter", "logistic-science-pack" }
+fast_inserter.unit.count = 75
+fast_inserter.unit.ingredients = {
+	{ "material-science-pack", 1 },
+	{ "logistic-science-pack", 1 },
+}
+
 
 
 -- automation science start
@@ -133,15 +138,6 @@ chemical_science_pack.unit.ingredients = {
 data.raw["technology"]["advanced-material-processing-2"].hidden = true
 find_remove(data.raw["technology"]["production-science-pack"].prerequisites, "advanced-material-processing-2")
 find_remove(data.raw["technology"]["rocket-silo"].prerequisites, "advanced-material-processing-2")
-
-local fast_inserter = data.raw["technology"]["fast-inserter"]
-fast_inserter.prerequisites = { "long-handed-inserter", "automation-science-pack" }
-fast_inserter.unit.count = 75
-fast_inserter.unit.ingredients = {
-	{ "material-science-pack"  , 1 },
-	{ "logistic-science-pack"  , 1 },
-	{ "automation-science-pack", 1 },
-}
 
 local automation_2 = data.raw["technology"]["automation-2"]
 automation_2.prerequisites = { "automation", "steel-processing", "automation-science-pack" }
@@ -319,6 +315,13 @@ rocketry.unit.ingredients = {
 	{ "military-science-pack"  , 1 },
 	{ "chemical-science-pack"  , 1 },
 }
+
+local rocket_silo = data.raw["technology"]["rocket-silo"]
+table.insert(rocket_silo.effects, {
+	hidden = true,
+	modifier = 999,
+	type = "cargo-landing-pad-count"
+})
 
 
 

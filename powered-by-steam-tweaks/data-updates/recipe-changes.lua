@@ -44,6 +44,7 @@ advanced_circuit.results = {
 local agricultural_tower = data.raw["recipe"]["agricultural-tower"]
 agricultural_tower.ingredients = {
 	{ amount = 8, name = "copper-plate"      , type = "item" },
+	{ amount = 2, name = "pipe"              , type = "item" },
 	{ amount = 3, name = "electronic-circuit", type = "item" },
 	{ amount = 1, name = "landfill"          , type = "item" },
 }
@@ -62,7 +63,6 @@ data.raw["recipe"]["fast-transport-belt"].ingredients = {
 
 replace_ingredient_name(data.raw["recipe"]["lab"], "transport-belt", "pipe")
 replace_ingredient_name(data.raw["recipe"]["burner-inserter"], "iron-plate", "copper-plate")
-replace_ingredient_name(data.raw["recipe"]["assembling-machine-1"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["inserter"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["steam-engine"], "iron-plate", "copper-plate")
 replace_ingredient_name(data.raw["recipe"]["transport-belt"], "iron-plate", "copper-plate")
@@ -70,6 +70,12 @@ replace_ingredient_name(data.raw["recipe"]["transport-belt"], "iron-plate", "cop
 --replace_ingredient_name(data.raw["recipe"]["logistic-science-pack"], "inserter", "burner-inserter")
 
 
+
+data.raw["recipe"]["assembling-machine-1"].ingredients = {
+	{ amount = 5, name = "iron-plate"        , type = "item" },
+	{ amount = 2, name = "transport-belt"    , type = "item" },
+	{ amount = 3, name = "electronic-circuit", type = "item" },
+}
 
 table.insert(data.raw["recipe"]["steel-plate"].ingredients, {
 	amount = 1,
