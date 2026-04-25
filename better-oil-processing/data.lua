@@ -25,8 +25,9 @@ soft_plastic_bar_recipe.name = "soft-plastic-bar"
 --soft_plastic_bar_recipe.order = "b[chemistry]-b[soft-plastic-bar]"
 soft_plastic_bar_recipe.icon = "__better-oil-processing__/graphics/icons/soft-plastic-bar-recipe.png"
 soft_plastic_bar_recipe.ingredients = {
-	{ amount = 20, name = "kerosene", type = "fluid" },
-	{ amount = 1 , name = "sulfur"  , type = "item"  },
+	{ amount = 20, name = "kerosene"    , type = "fluid" },
+	{ amount = 5 , name = "volatile-gas", type = "fluid" },
+	{ amount = 1 , name = "sulfur"      , type = "item"  },
 }
 soft_plastic_bar_recipe.results = {
 	{ amount = 2, name = "soft-plastic-bar", type = "item" },
@@ -294,6 +295,7 @@ volatile_gas_solidification.ingredients = {
 volatile_gas_solidification.results = {
 	{ amount = 1, name = "coke", type = "item" },
 }
+volatile_gas_solidification.energy_required = 1.5
 volatile_gas_solidification.crafting_machine_tint = {
 	primary    = { r = 1.000, g = 0.908, b = 0.400, a = 1 },
 	quaternary = { r = 0.969, g = 0.950, b = 0.419, a = 1 },

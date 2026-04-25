@@ -127,13 +127,15 @@ rail.results[1].amount = 3
 
 local hard_plastic_bar = data.raw["recipe"]["plastic-bar"]
 hard_plastic_bar.ingredients = {
-	{ amount = 20, name = "petroleum-gas", type = "fluid" },
+	{ amount = 30, name = "petroleum-gas", type = "fluid" },
+	{ amount = 5 , name = "volatile-gas" , type = "fluid" },
 	{ amount = 1 , name = "resin"        , type = "item"  },
 }
 local soft_plastic_bar = data.raw["recipe"]["soft-plastic-bar"]
 soft_plastic_bar.ingredients = {
-	{ amount = 20, name = "kerosene", type = "fluid" },
-	{ amount = 1 , name = "resin"   , type = "item"  },
+	{ amount = 15, name = "kerosene"    , type = "fluid" },
+	{ amount = 5 , name = "volatile-gas", type = "fluid" },
+	{ amount = 1 , name = "resin"       , type = "item"  },
 }
 
 local automation_science_pack = data.raw["recipe"]["automation-science-pack"]

@@ -38,7 +38,7 @@ local plastic_bar_recipe = data.raw["recipe"]["plastic-bar"]
 plastic_bar_recipe.icon = "__better-oil-processing__/graphics/icons/hard-plastic-bar-recipe.png"
 plastic_bar_recipe.ingredients = {
 	{ amount = 20, name = "petroleum-gas", type = "fluid" },
-	{ amount = 5, name = "volatile-gas", type = "fluid" },
+	{ amount = 5 , name = "volatile-gas" , type = "fluid" },
 }
 
 -- plastics (tech) tweaks
@@ -50,6 +50,12 @@ replace_ingredient_name(data.raw["recipe"]["low-density-structure"]        , "pl
 replace_ingredient_name(data.raw["recipe"]["casting-low-density-structure"], "plastic-bar", "soft-plastic-bar")
 replace_ingredient_name(data.raw["recipe"]["superconductor"]               , "plastic-bar", "soft-plastic-bar")
 replace_ingredient_name(data.raw["recipe"]["tesla-ammo"]                   , "plastic-bar", "soft-plastic-bar")
+
+-- add volatile gas to some recipes
+local solid_fuel_from_petroleum_gas_recipe = data.raw["recipe"]["solid-fuel-from-petroleum-gas"]
+table.insert(solid_fuel_from_petroleum_gas_recipe.ingredients, { amount = 1, name = "volatile-gas", type = "fluid" })
+local battery = data.raw["recipe"]["battery"]
+table.insert(battery.ingredients, { amount = 1, name = "volatile-gas", type = "fluid" })
 
 -- oil ocean tweaks
 data.raw["tile"]["oil-ocean-shallow"].fluid = "kerosene"

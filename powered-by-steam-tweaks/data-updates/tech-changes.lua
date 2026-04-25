@@ -246,6 +246,13 @@ speed_module.unit.ingredients = {
 	{ "automation-science-pack", 1 },
 }
 
+local bulk_inserter = data.raw["technology"]["bulk-inserter"]
+bulk_inserter.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+
 
 
 -- military science start
@@ -357,6 +364,22 @@ table.insert(rocket_silo.effects, {
 	modifier = 999,
 	type = "cargo-landing-pad-count"
 })
+
+local electric_engine = data.raw["technology"]["electric-engine"]
+electric_engine.prerequisites = { "engine", "lubricant" }
+electric_engine.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+	{ "chemical-science-pack"  , 1 },
+}
+
+
+
+-- metallurgic science start
+
+local artillery = data.raw["technology"]["artillery"]
+artillery.prerequisites = { "explosives", "metallurgic-science-pack", "radar" }
 
 
 

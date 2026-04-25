@@ -26,7 +26,7 @@ local resin_recipe = {
 		{ amount = 1, name = "wood", type = "item" },
 	},
 	results = {
-		{ amount = 1, name = "resin", type = "item" },
+		{ amount = 2, name = "resin", type = "item" },
 	},
 	energy_required = 5,
 	allow_productivity = true,

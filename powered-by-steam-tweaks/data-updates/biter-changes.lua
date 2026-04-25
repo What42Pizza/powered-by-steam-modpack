@@ -7,7 +7,7 @@ for _,unit in pairs(data.raw["unit"]) do
 	-- decrease all resistance decreases by 50%
 	if unit.resistances then
 		for _,resistance in ipairs(unit.resistances) do
-			if resistance.decrease then resistance.decrease = resistance.decrease * 0.5 end
+			if resistance.decrease then resistance.decrease = math.sqrt(resistance.decrease) end
 		end
 	end
 	
@@ -20,7 +20,7 @@ for _,worm in pairs(data.raw["turret"]) do
 	-- decrease all resistance decreases by 50%
 	if worm.resistances then
 		for _,resistance in ipairs(worm.resistances) do
-			if resistance.decrease then resistance.decrease = resistance.decrease * 0.5 end
+			if resistance.decrease then resistance.decrease = math.sqrt(resistance.decrease) end
 		end
 	end
 end
