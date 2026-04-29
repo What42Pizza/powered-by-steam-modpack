@@ -35,6 +35,25 @@ data.raw["capsule"]["raw-fish"].spoil_ticks = 30 * one_minute
 table.insert(data.raw["lab"]["lab"]   .inputs, 1, "material-science-pack")
 table.insert(data.raw["lab"]["biolab"].inputs, 1, "material-science-pack")
 
+local gun_turret = data.raw["ammo-turret"]["gun-turret"]
+gun_turret.attack_parameters.range = 24
+
+local tank_cannon = data.raw["gun"]["tank-cannon"]
+tank_cannon.attack_parameters.cooldown = 5 * one_second
+tank_cannon.attack_parameters.range = 75
+
+local cannon_shell = data.raw["ammo"]["cannon-shell"]
+cannon_shell.ammo_type.action.action_delivery.max_range = 50
+cannon_shell.ammo_type.action.action_delivery.direct_deviation = 0.03
+cannon_shell.ammo_type.action.action_delivery.range_deviation = 0.03
+local explosive_cannon_shell = data.raw["ammo"]["explosive-cannon-shell"]
+explosive_cannon_shell.ammo_type.action.action_delivery.max_range = 50
+explosive_cannon_shell.ammo_type.action.action_delivery.direct_deviation = 0.03
+explosive_cannon_shell.ammo_type.action.action_delivery.range_deviation = 0.03
+
+local cannon_projectile = data.raw["projectile"]["cannon-projectile"]
+cannon_projectile.action.action_delivery.target_effects[1].damage.amount = 3000
+
 for _,resource in pairs(data.raw["resource"]) do
 	if resource.minable and resource.minable.mining_time then
 		resource.minable.mining_time = resource.minable.mining_time * 1.25

@@ -107,6 +107,7 @@ coal_liquefaction_recipe.icon = "__better-oil-processing__/graphics/icons/fluid/
 local oil_processing_tech = data.raw["technology"]["oil-processing"]
 table.insert(oil_processing_tech.effects, { recipe = "coal-coking"                , type = "unlock-recipe" })
 table.insert(oil_processing_tech.effects, { recipe = "volatile-gas-solidification", type = "unlock-recipe" })
+table.insert(oil_processing_tech.effects, { recipe = "efficient-steel-plate"      , type = "unlock-recipe" })
 
 -- advanced oil processing tech tweaks
 local advanced_oil_processing_tech = data.raw["technology"]["advanced-oil-processing"]

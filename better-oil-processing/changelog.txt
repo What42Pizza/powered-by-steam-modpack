@@ -1,13 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date:
+  Minor Features:
+    - Added recipe for more efficient steel plate production using Coke
   Balancing:
     - Replaced 'steam' ingredient with 'water' in sulfuric acid recipe
 	- Reverted chemical plant crafting speed to 1.0
-	- Decreased asphalt technology cost to 200
+	- Decreased asphalt technology cost to 150
 	- Decreased sulfur resource frequency
 	- Added volatile gas to some misc recipes
-	- Increased crafting time of 'Volatile gas solidification' from 1s to 1.5s
+	- Rebalanced 'coal coking' and 'volatile gas solidification' recipes
   Translation:
     - Removed custom name for 'Lubricant' technology
 ---------------------------------------------------------------------------------------------------

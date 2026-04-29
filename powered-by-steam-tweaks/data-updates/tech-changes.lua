@@ -253,6 +253,37 @@ bulk_inserter.unit.ingredients = {
 	{ "automation-science-pack", 1 },
 }
 
+local solar_panel_equipment = data.raw["technology"]["solar-panel-equipment"]
+solar_panel_equipment.unit.count = 125
+solar_panel_equipment.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+
+local night_vision_equipment = data.raw["technology"]["night-vision-equipment"]
+night_vision_equipment.prerequisites = { "modular-armor" }
+night_vision_equipment.unit.count = 125
+night_vision_equipment.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+
+local belt_immunity_equipment = data.raw["technology"]["belt-immunity-equipment"]
+belt_immunity_equipment.unit.count = 200
+belt_immunity_equipment.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+}
+
+local personal_roboport_equipment = data.raw["technology"]["personal-roboport-equipment"]
+personal_roboport_equipment.unit.count = 200
+
+local exoskeleton_equipment = data.raw["technology"]["exoskeleton-equipment"]
+exoskeleton_equipment.unit.count = 200
+
 
 
 -- military science start
@@ -384,6 +415,35 @@ electric_engine.unit.ingredients = {
 	{ "material-science-pack"  , 1 },
 	{ "logistic-science-pack"  , 1 },
 	{ "automation-science-pack", 1 },
+	{ "chemical-science-pack"  , 1 },
+}
+
+local battery_equipment = data.raw["technology"]["battery-equipment"]
+battery_equipment.unit.count = 100
+battery_equipment.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+	{ "chemical-science-pack"  , 1 },
+}
+
+local energy_shield_equipment = data.raw["technology"]["energy-shield-equipment"]
+energy_shield_equipment.unit.count = 250
+energy_shield_equipment.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+	{ "military-science-pack"  , 1 },
+	{ "chemical-science-pack"  , 1 },
+}
+
+local discharge_defense_equipment = data.raw["technology"]["discharge-defense-equipment"]
+discharge_defense_equipment.unit.count = 250
+discharge_defense_equipment.unit.ingredients = {
+	{ "material-science-pack"  , 1 },
+	{ "logistic-science-pack"  , 1 },
+	{ "automation-science-pack", 1 },
+	{ "military-science-pack"  , 1 },
 	{ "chemical-science-pack"  , 1 },
 }
 

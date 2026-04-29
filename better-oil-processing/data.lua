@@ -66,7 +66,7 @@ asphalt_tech.prerequisites = {
 	"advanced-oil-processing",
 }
 asphalt_tech.unit = {
-	count = 200,
+	count = 150,
 	ingredients = {
 		{ "automation-science-pack", 1 },
 		{ "logistic-science-pack" , 1 },
@@ -290,7 +290,7 @@ data:extend{solid_fuel_from_kerosene}
 local volatile_gas_solidification = table.deepcopy(data.raw["recipe"]["solid-fuel-from-petroleum-gas"])
 volatile_gas_solidification.name = "volatile-gas-solidification"
 volatile_gas_solidification.ingredients = {
-	{ amount = 50, name = "volatile-gas", type = "fluid" },
+	{ amount = 75, name = "volatile-gas", type = "fluid" },
 }
 volatile_gas_solidification.results = {
 	{ amount = 1, name = "coke", type = "item" },
@@ -315,11 +315,11 @@ coal_coking.icon = "__better-oil-processing__/graphics/icons/coke.png"
 coal_coking.order = "c[oil-products]-b[coal-coking]"
 coal_coking.energy_required = 4.0
 coal_coking.ingredients = {
-	{ amount = 3, name = "coal", type = "item" },
+	{ amount = 2, name = "coal", type = "item" },
 }
 coal_coking.results = {
-	{ amount = 1, name = "coke"        , type = "item" },
-	{ amount = 5, name = "volatile-gas", type = "fluid" },
+	{ amount = 1 , name = "coke"        , type = "item"  },
+	{ amount = 10, name = "volatile-gas", type = "fluid" },
 }
 coal_coking.crafting_machine_tint = {
 	primary    = { r = 1.000, g = 0.908, b = 0.400, a = 1 },
@@ -329,3 +329,24 @@ coal_coking.crafting_machine_tint = {
 }
 coal_coking.icon = "__better-oil-processing__/graphics/icons/fluid/coal-coking.png"
 data:extend{coal_coking}
+
+
+
+-- efficient steel plates
+local efficient_steel_plates = {
+	allow_productivity = true,
+	category = "smelting",
+	enabled = false,
+	energy_required = 60,
+	ingredients = {
+		{ amount = 10, name = "iron-ore", type = "item" },
+		{ amount = 2 , name = "coke"    , type = "item" },
+	},
+	name = "efficient-steel-plate",
+	results = {
+		{ amount = 5, name = "steel-plate", type = "item" },
+	},
+	type = "recipe"
+}
+data:extend{efficient_steel_plates}
+

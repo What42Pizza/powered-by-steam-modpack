@@ -1,3 +1,14 @@
+-- cut all engine ingredient counts in half
+for _,recipe in pairs(data.raw["recipe"]) do
+	if recipe.ingredients then
+		for _,ingredient in pairs(recipe.ingredients) do
+			if ingredient.name == "engine-unit" and ingredient.amount then
+				ingredient.amount = math.ceil(ingredient.amount * 0.5)
+			end
+		end
+	end
+end
+
 data.raw["recipe"]["stone-furnace"].ingredients = {
 	{ amount = 8, name = "stone", type = "item" },
 }
@@ -166,4 +177,43 @@ replace_ingredient(discharge_defense, "laser-turret", { amount = 100, name = "ba
 local stone_wall = data.raw["recipe"]["stone-wall"]
 stone_wall.ingredients = {
 	{ amount = 4, name = "stone-brick", type = "item" },
+}
+
+local pump = data.raw["recipe"]["pump"]
+pump.ingredients = {
+	{ amount = 2, name = "steel-plate", type = "item" },
+	{ amount = 2, name = "engine-unit", type = "item" },
+	{ amount = 1, name = "pipe"       , type = "item" },
+}
+local electric_pump = data.raw["recipe"]["electric-pump"]
+electric_pump.ingredients = {
+	{ amount = 2, name = "steel-plate", type = "item" },
+	{ amount = 2, name = "engine-unit", type = "item" },
+	{ amount = 1, name = "pipe"       , type = "item" },
+}
+
+local medium_electric_pole = data.raw["recipe"]["medium-electric-pole"]
+medium_electric_pole.ingredients = {
+	{ amount = 1, name = "steel-plate" , type = "item" },
+	{ amount = 2, name = "iron-stick"  , type = "item" },
+	{ amount = 2, name = "copper-cable", type = "item" },
+}
+
+local train_stop = data.raw["recipe"]["train-stop"]
+train_stop.ingredients = {
+	{ amount = 5, name = "iron-plate"        , type = "item" },
+	{ amount = 5, name = "steel-plate"       , type = "item" },
+	{ amount = 4, name = "iron-stick"        , type = "item" },
+	{ amount = 3, name = "electronic-circuit", type = "item" },
+}
+
+local rail_signal = data.raw["recipe"]["rail-signal"]
+rail_signal.ingredients = {
+	{ amount = 2, name = "iron-plate"        , type = "item" },
+	{ amount = 2, name = "electronic-circuit", type = "item" },
+}
+local rail_chain_signal = data.raw["recipe"]["rail-chain-signal"]
+rail_chain_signal.ingredients = {
+	{ amount = 3, name = "iron-plate"        , type = "item" },
+	{ amount = 3, name = "electronic-circuit", type = "item" },
 }

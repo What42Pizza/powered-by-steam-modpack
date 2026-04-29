@@ -13,10 +13,6 @@ data:extend{electric_pump_item}
 local electric_pump_recipe = table.deepcopy(data.raw["recipe"]["pump"])
 electric_pump_recipe.name = "electric-pump"
 electric_pump_recipe.results = {
-	{
-		amount = 1,
-		name = "electric-pump",
-		type = "item"
-	}
+	{ amount = 1, name = "electric-pump", type = "item" }
 }
 data:extend{electric_pump_recipe}
