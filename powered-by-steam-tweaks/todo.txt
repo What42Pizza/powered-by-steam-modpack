@@ -1,6 +1,7 @@
-make tank cannons much longer range and slower (maybe need to do shell range too?)
-combine purple and yellow science?
-add an alternative better recipe for steel that takes coke instead of coal
+make requester chests research rely on fulgora science
+make energy shield mk1 research rely fulgora science
+remove energy shield mk2
+remove combinators research
 make rocket fuel into a fluid
 nerf nuclear power (both reactor and boilers)
 make locomotives louder?

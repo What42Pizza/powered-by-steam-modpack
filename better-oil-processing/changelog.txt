@@ -1,6 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.2
+Date: 26/05/07
+  Bugfixes:
+    - Fixed error when loading without Space Age
+  Minor Features:
+    - Added protections against expected but missing prototypes
+---------------------------------------------------------------------------------------------------
 Version: 0.2.1
-Date:
+Date: 26/04/28
   Minor Features:
     - Added recipe for more efficient steel plate production using Coke
   Balancing:

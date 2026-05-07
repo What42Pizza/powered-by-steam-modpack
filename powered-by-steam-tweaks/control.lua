@@ -16,6 +16,7 @@ function re_init()
 			["firearm-magazine"] = 100,
 		})
 		remote.call("freeplay", "set_debris_items", {})
+		remote.call("freeplay", "set_custom_intro_message", {"msg-intro-powered-by-steam"})
 	end
 	
 	
