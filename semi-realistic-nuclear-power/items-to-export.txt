@@ -1,0 +1,12 @@
+graphics
+locale
+changelog.txt
+control.lua
+data-final-fixes.lua
+data-updates.lua
+data.lua
+info.json
+LICENSE
+mod-readme.txt
+thumbnail.png
+utils.lua

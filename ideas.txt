@@ -16,7 +16,7 @@ Within 'Powered By Steam - Tweaks:
   - nuclear fuel
   - all locomotive braking force upgrades
   - pollution decrease of effeciency modules
-  - all teir 3 modules?
+  - all tier 3 modules?
 - changes:
   - green circuits are now camshafts and its recipe is now iron rod + copper -> camshaft
   - red circuits are now clockworks
@@ -99,3 +99,28 @@ Within 'Better Oil Refining':
 - rocket fuel is made with volatile gas + solid fuel
 - asphalt (just another paver like concrete) can be made with hot tar and stone
 - make flamethrowers only take crude oil and kerosene
+
+
+
+Within 'Semi Realistic Nuclear Power':
+
+- nuclear reactors now take in 'high pressure water' (with two inputs) and outputs 'superheated water' (with two outputs)
+or maybe:
+- nuclear reactors are replaced by buildings called 'reactor segments' which:
+  - are 2x2
+  - have two in-out 'high pressure water' inputs
+  - have two in-out 'superheated water' outputs
+  - when placed / removed, detects all nearby reactor segment buildings and replaces itself and others with a version of the prototype that has a specific efficiency
+  - counts 'nearby reactor segments' as any that are either directly touching or corner-touching, with a max in-between 'edge-to-edge' or 'corner-to-corner' distance of 1 tile, allowing a max of 8 neighbors with room for inserters inside the reactor
+
+- there's a new building called 'pressurizer' that takes in 'water' and outputs 'high pressure water'
+- there's a new building called 'pressurized heat exchanger' which has the recipes:
+  - takes in 'superheated water' and 'water' and outputs 'high pressure water' and 'high pressure steam'
+  - takes in 'high pressure steam' and 'water' and outputs 'medium pressure steam' and 'steam'
+  - takes in 'medium pressure steam' and 'water' and outputs 'steam' (the amount is the amount of input 'medium pressure steam' plus the amount of input 'water')
+- there's a new building called 'high pressure steam turbine' that takes in 'dry high pressure steam' and outputs 'medium pressure steam' and electricity
+- there's a new building called 'medium pressure steam turbine' that takes in 'dry medium pressure steam' and outputs 'steam' and electricity
+- chemical plants now have three new recipes:
+  - takes in 'high pressure steam' and outputs 'dry high pressure steam' and 'water' (in small amounts, maybe should use its own building? also the rate of dry steam output should match the rate of each turbine's dry steam input so they can be built in pairs)
+  - takes in 'medium pressure steam' and outputs 'dry medium pressure steam' and 'water' (in small amounts, maybe should use its own building? also the rate of dry steam output should match the rate of each turbine's dry steam input so they can be built in pairs)
+  - takes in 'steam' and outputs 'water'
