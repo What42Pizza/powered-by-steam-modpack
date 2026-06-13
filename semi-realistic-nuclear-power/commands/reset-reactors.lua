@@ -18,7 +18,8 @@ commands.add_command(
 			if
 				entity.name == "nuclear-reactor-segment-fluid-input" or
 				entity.name == "nuclear-reactor-segment-fluid-output" or
-				entity.name == "nuclear-reactor-segment-pumping-sounds"
+				entity.name == "nuclear-reactor-segment-pumping-sounds" or
+				entity.name == "nuclear-reactor-segment-creaking-sounds"
 			then
 				entity.destroy()
 				return
@@ -39,7 +40,7 @@ commands.add_command(
 				position = reactor.position,
 				force = reactor.force,
 			}
-			add_reactor(reactor_ent)
+			register_reactor(reactor_ent)
 		end
 		
 	end

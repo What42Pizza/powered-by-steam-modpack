@@ -1,5 +1,6 @@
+require("constants")
+
 local fuel_consumption_per_update = prototypes.entity["nuclear-reactor-segment"].get_max_energy_usage() * 30
-local temp_per_superheated_water = 0.15
 
 
 
@@ -19,6 +20,10 @@ function round(v)
 	return math.floor(v + 0.5)
 end
 
+function clamp(v, min, max)
+	return (v < min and min) or (v > max and max) or v
+end
+
 
 
 require("commands.reset-reactors")
@@ -36,7 +41,7 @@ script.on_event({ defines.events.on_built_entity, defines.events.on_robot_built_
 	local entity = event.entity
 	
 	if entity.name == "nuclear-reactor-segment" then
-		add_reactor(entity)
+		register_reactor(entity)
 	end
 	
 end)
@@ -46,20 +51,26 @@ end)
 script.on_event({ defines.events.on_pre_player_mined_item, defines.events.on_robot_pre_mined, defines.events.on_entity_died, defines.events.script_raised_destroy, defines.events.on_space_platform_mined_entity }, function(event)
 	local entity = event.entity
 	
-	if entity.name == "nuclear-reactor-segment" then
-		for i,v in ipairs(storage.reactors) do
-			if v.reactor_ent == entity then
-				remove_reactor(i)
-				return
-			end
-		end
+	if
+		entity.name == "nuclear-reactor-segment-fluid-input" or
+		entity.name == "nuclear-reactor-segment-fluid-output" or
+		entity.name == "nuclear-reactor-segment-pumping-sounds" or
+		entity.name == "nuclear-reactor-segment-creaking-sounds"
+	then
+		game.print("WARNING: HELPER ENTITY DESTROYED, THIS WILL LIKELY CAUSE A CRASH")
+	end
+	
+	local found_reactor = storage.reactors_by_unit_number[entity.unit_number]
+	if found_reactor then
+		unregister_reactor(found_reactor)
+		return
 	end
 	
 end)
 
 
 
-function add_reactor(reactor_ent)
+function register_reactor(reactor_ent)
 	local pos = reactor_ent.position
 	
 	reactor_ent.active = false
@@ -79,13 +90,23 @@ function add_reactor(reactor_ent)
 		position = pos,
 		force = reactor_ent.force,
 	}
-	pumping_sound_ent.get_module_inventory().insert({ name = "speed-module", count = 1 })
-	pumping_sound_ent.active = false
 	local creaking_sound_ent = reactor_ent.surface.create_entity{
 		name = "nuclear-reactor-segment-creaking-sounds",
 		position = pos,
 		force = reactor_ent.force,
 	}
+	
+	fluid_input_ent.destructible = false
+	fluid_output_ent.destructible = false
+	pumping_sound_ent.destructible = false
+	creaking_sound_ent.destructible = false
+	fluid_input_ent.minable = false
+	fluid_output_ent.minable = false
+	pumping_sound_ent.minable = false
+	creaking_sound_ent.minable = false
+	
+	pumping_sound_ent.get_module_inventory().insert({ name = "speed-module", count = 1 })
+	pumping_sound_ent.active = false
 	creaking_sound_ent.get_module_inventory().insert({ name = "speed-module", count = 1 })
 	creaking_sound_ent.active = false
 	
@@ -106,6 +127,7 @@ function add_reactor(reactor_ent)
 		decay_heat = 0,
 		
 	})
+	
 	storage.reactors_by_unit_number[reactor_ent.unit_number] = storage.reactors[#storage.reactors]
 	
 	trigger_neighbors_recount(reactor_ent.surface, reactor_ent.position)
@@ -114,18 +136,26 @@ end
 
 
 
-function remove_reactor(reactor_i)
-	local reactor = storage.reactors[reactor_i]
+function unregister_reactor(reactor)
+	
+	local recount_surface = reactor.reactor_ent.surface
+	local recount_pos = reactor.reactor_ent.position
 	
 	table.remove(storage.reactors_by_unit_number, reactor.reactor_ent.unit_number)
 	
-	if reactor.fluid_input_ent then reactor.fluid_input_ent.destroy() end
-	if reactor.fluid_output_ent then reactor.fluid_output_ent.destroy() end
-	if reactor.pumping_sound_ent then reactor.pumping_sound_ent.destroy() end
+	--reactor.reactor_ent.destroy() -- this 'custom functionality' system probably shouldn't handle creating/destroying the reactor segment entities
+	reactor.fluid_input_ent.destroy()
+	reactor.fluid_output_ent.destroy()
+	reactor.pumping_sound_ent.destroy()
+	reactor.creaking_sound_ent.destroy()
 	
-	table.remove(storage.reactors, reactor_i)
+	for i = #storage.reactors, 1, -1 do
+		if storage.reactors[i] == reactor then
+			table.remove(storage.reactors, i)
+		end
+	end
 	
-	trigger_neighbors_recount(reactor.reactor_ent.surface, reactor.reactor_ent.position)
+	trigger_neighbors_recount(recount_surface, recount_pos)
 	
 end
 
@@ -154,8 +184,8 @@ function recount_reactor_neighbors(reactor_ent)
 	})
 	local reactor = storage.reactors_by_unit_number[reactor_ent.unit_number]
 	reactor.neighbors = #nearby_reactors - 1 -- because it will also count itself
-	reactor.neighbors = math.min(reactor.neighbors, 6) -- max neighbors is 6
-	reactor.efficiency = 1.0 + 0.25 * reactor.neighbors
+	reactor.neighbors = math.min(reactor.neighbors, MAX_NEIGHBORS) -- max neighbors is 6
+	reactor.efficiency = STARTING_EFFICIENCY + reactor.neighbors * NEIGHBOR_EFFICIENCY_BONUS
 	--world_text(reactor.reactor_ent.position, "neighbors: " .. reactor.neighbors)
 end
 
@@ -177,6 +207,16 @@ function update_reactor(reactor)
 	
 	local reactor_ent = reactor.reactor_ent
 	
+	if reactor.temp >= MAX_REACTOR_TEMP then
+		reactor_ent.surface.create_entity{
+			name = "atomic-rocket",
+			position = reactor_ent.position,
+			force = reactor_ent.force,
+			target = reactor_ent.position,
+			speed = 1.0
+		}
+	end
+	
 	if reactor.fuel <= 0 then
 		local inventory = reactor_ent.burner.inventory.get_contents()
 		if #inventory >= 1 then
@@ -190,9 +230,12 @@ function update_reactor(reactor)
 	end
 	
 	if reactor.fuel > 0 then
-		reactor.decay_heat = reactor.decay_heat + 0.01 * reactor.efficiency
-		reactor.direct_heat = reactor.direct_heat + 0.5 * reactor.efficiency
-		reactor.fuel = reactor.fuel - fuel_consumption_per_update
+		local control_rod_signal = reactor_ent.get_signal({ name = "iron-stick", type = "item" }, defines.wire_connector_id.circuit_red, defines.wire_connector_id.circuit_green)
+		local consume_amount = 1.0 - clamp(control_rod_signal, 0, 100) / 100.0
+		local heating_amount = (reactor.efficiency + EFFICIENCY_BOOST_PER_HUNDRED_TEMP * reactor.temp / 100) * consume_amount
+		reactor.decay_heat = reactor.decay_heat + 0.01 * heating_amount
+		reactor.direct_heat = reactor.direct_heat + 0.5 * heating_amount
+		reactor.fuel = reactor.fuel - fuel_consumption_per_update * consume_amount
 		if reactor.fuel <= 0 then
 			local burnt_result = prototypes.item[reactor_ent.burner.currently_burning.name.name].burnt_result
 			reactor_ent.burner.burnt_result_inventory.insert({ name = burnt_result.name, count = 1 })
@@ -202,11 +245,11 @@ function update_reactor(reactor)
 	
 	reactor.temp = reactor.temp + reactor.decay_heat + reactor.direct_heat
 	
-	local available_water = reactor.fluid_input_ent.get_fluid_count()
-	local max_water_to_heat = round(math.max(reactor.temp - 700, 0) / temp_per_superheated_water)
-	local available_output_space = 100 - reactor.fluid_output_ent.get_fluid_count()
-	local water_to_heat = math.min(available_water, max_water_to_heat, available_output_space)
-	reactor.temp = reactor.temp - water_to_heat * temp_per_superheated_water
+	local max_water_available = reactor.fluid_input_ent.get_fluid_count()
+	local max_water_heatable = round(math.max(reactor.temp - SUPERHEATED_TEMP, 0) / TEMP_PER_SUPERHEATED_WATER)
+	local max_water_output_available = REACTOR_OUT_FLOW_SIZE - reactor.fluid_output_ent.get_fluid_count()
+	local water_to_heat = math.min(max_water_available, max_water_heatable, max_water_output_available, MAX_FLOW_PER_TICK)
+	reactor.temp = reactor.temp - water_to_heat * TEMP_PER_SUPERHEATED_WATER
 	if water_to_heat > 0 then
 		reactor.fluid_input_ent.remove_fluid({ name = "high-pressure-water", amount = water_to_heat })
 		reactor.fluid_output_ent.insert_fluid({ name = "superheated-water", amount = water_to_heat })
@@ -216,7 +259,7 @@ function update_reactor(reactor)
 	
 	reactor.decay_heat = reactor.decay_heat * 0.99
 	reactor.direct_heat = reactor.direct_heat * 0.5
-	reactor.temp = lerp(reactor.temp, 15, 0.0001)
+	reactor.temp = lerp(reactor.temp, 15, 0.00005)
 	
 	reactor_ent.burner.remaining_burning_fuel = reactor.fuel
 	reactor_ent.temperature = reactor.temp

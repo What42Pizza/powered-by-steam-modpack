@@ -18,7 +18,7 @@ local nuclear_reactor_segment = {
 		},
 	},
 	heat_buffer = {
-		max_temperature = 1200,
+		max_temperature = MAX_REACTOR_TEMP,
 		specific_heat = "10MJ",
 		max_transfer = "10GW",
 	},
@@ -57,10 +57,34 @@ local nuclear_reactor_segment = {
 				width = 173,
 				height = 147,
 				scale = 0.5,
-				shift = { 0.2, 0.077 },
+				shift = { 0.22, 0.077 },
 			}
 		}
 	},
+}
+
+
+
+local nuclear_reactor_segment_item = table.deepcopy(data.raw["item"]["nuclear-reactor"])
+nuclear_reactor_segment_item.name = "nuclear-reactor-segment"
+nuclear_reactor_segment_item.place_result = "nuclear-reactor-segment"
+
+
+
+local nuclear_reactor_segment_recipe = {
+	name = "nuclear-reactor-segment",
+	type = "recipe",
+	ingredients = {
+		{ amount = 1000, name = "concrete"      , type = "item" },
+		{ amount = 250 , name = "steel-plate"   , type = "item" },
+		{ amount = 500 , name = "copper-plate"  , type = "item" },
+		{ amount = 4   , name = "pipe-to-ground", type = "item" },
+	},
+	results = {
+		{ amount = 1, name = "nuclear-reactor-segment", type = "item" },
+	},
+	energy_required = 5,
+	enabled = false,
 }
 
 
@@ -76,6 +100,7 @@ local nuclear_reactor_segment_pumping_sounds = {
 			audible_distance_modifier = 0.9,
 		}
 	},
+	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
 	module_slots = 1,
 	allowed_effects = { "speed" },
 	energy_usage = "1W",
@@ -109,6 +134,7 @@ local nuclear_reactor_segment_creaking_sounds = {
 			{ filename = "__semi-realistic-nuclear-power__/sound/silence-3.ogg", volume = 1.0, audible_distance_modifier = 0.8 },
 		}
 	},
+	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
 	module_slots = 1,
 	allowed_effects = { "speed" },
 	energy_usage = "1W",
@@ -125,15 +151,15 @@ local nuclear_reactor_segment_fluid_input = {
 	name = "nuclear-reactor-segment-fluid-input",
 	type = "pipe",
 	collision_box = {
-		{ -0.5, -1.0 },
-		{  0.5,  1.0 },
+		{ 0.0, -0.5 },
+		{ 0.0,  0.5 },
 	},
 	selection_box = {
 		{ -0.3, -0.8 },
 		{  0.3,  0.8 },
 	},
 	fluid_box = {
-		volume = 100,
+		volume = REACTOR_IN_FLOW_SIZE,
 		filter = "high-pressure-water",
 		pipe_connections = {
 			{
@@ -150,6 +176,7 @@ local nuclear_reactor_segment_fluid_input = {
 			},
 		},
 	},
+	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
 	horizontal_window_bounding_box = {
 		left_top     = { 0, 0 },
 		right_bottom = { 0, 0 },
@@ -164,15 +191,15 @@ local nuclear_reactor_segment_fluid_output = {
 	name = "nuclear-reactor-segment-fluid-output",
 	type = "pipe",
 	collision_box = {
-		{ -0.5, -1.0 },
-		{  0.5,  1.0 },
+		{ 0.0, -0.5 },
+		{ 0.0,  0.5 },
 	},
 	selection_box = {
 		{ -0.3, -0.8 },
 		{  0.3,  0.8 },
 	},
 	fluid_box = {
-		volume = 100,
+		volume = REACTOR_OUT_FLOW_SIZE,
 		filter = "superheated-water",
 		pipe_connections = {
 			{
@@ -189,6 +216,7 @@ local nuclear_reactor_segment_fluid_output = {
 			},
 		},
 	},
+	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
 	horizontal_window_bounding_box = {
 		left_top     = { 0, 0 },
 		right_bottom = { 0, 0 },
@@ -201,10 +229,4 @@ local nuclear_reactor_segment_fluid_output = {
 
 
 
-local nuclear_reactor_segment_item = table.deepcopy(data.raw["item"]["nuclear-reactor"])
-nuclear_reactor_segment_item.name = "nuclear-reactor-segment"
-nuclear_reactor_segment_item.place_result = "nuclear-reactor-segment"
-
-
-
-data:extend{nuclear_reactor_segment, nuclear_reactor_segment_item, nuclear_reactor_segment_pumping_sounds, nuclear_reactor_segment_creaking_sounds, nuclear_reactor_segment_fluid_input, nuclear_reactor_segment_fluid_output}
+data:extend{nuclear_reactor_segment, nuclear_reactor_segment_item, nuclear_reactor_segment_recipe, nuclear_reactor_segment_pumping_sounds, nuclear_reactor_segment_creaking_sounds, nuclear_reactor_segment_fluid_input, nuclear_reactor_segment_fluid_output}
