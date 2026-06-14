@@ -1,6 +1,6 @@
 require("constants")
 
-local fuel_consumption_per_update = prototypes.entity["nuclear-reactor-segment"].get_max_energy_usage() * 30
+local fuel_consumption_per_update = prototypes.entity["nuclear-reactor-segment"].get_max_energy_usage() * 20
 
 
 
@@ -27,6 +27,8 @@ end
 
 
 require("commands.reset-reactors")
+require("commands.show-reactors-debug")
+require("commands.hide-reactors-debug")
 
 
 
@@ -175,18 +177,28 @@ end
 
 function recount_reactor_neighbors(reactor_ent)
 	local pos = reactor_ent.position
-	local nearby_reactors = reactor_ent.surface.find_entities_filtered({
+	
+	local nearby_reactor_entities = reactor_ent.surface.find_entities_filtered({
 		area = {
 			{pos.x - 3, pos.y - 3},
 			{pos.x + 3, pos.y + 3},
 		},
 		name = "nuclear-reactor-segment"
 	})
+	
 	local reactor = storage.reactors_by_unit_number[reactor_ent.unit_number]
-	reactor.neighbors = #nearby_reactors - 1 -- because it will also count itself
-	reactor.neighbors = math.min(reactor.neighbors, MAX_NEIGHBORS) -- max neighbors is 6
-	reactor.efficiency = STARTING_EFFICIENCY + reactor.neighbors * NEIGHBOR_EFFICIENCY_BONUS
+	reactor.neighbors = {}
+	for _,nearby_reactor_entity in ipairs(nearby_reactor_entities) do
+		local neighbor = storage.reactors_by_unit_number[nearby_reactor_entity.unit_number]
+		if neighbor ~= reactor then
+			table.insert(reactor.neighbors, neighbor)
+		end
+	end
+	
+	local neighbor_count = math.min(#reactor.neighbors, MAX_NEIGHBORS)
+	reactor.efficiency = STARTING_EFFICIENCY + neighbor_count * NEIGHBOR_EFFICIENCY_BONUS
 	--world_text(reactor.reactor_ent.position, "neighbors: " .. reactor.neighbors)
+	
 end
 
 
@@ -229,12 +241,21 @@ function update_reactor(reactor)
 		end
 	end
 	
+	for _,neighbor in ipairs(reactor.neighbors) do
+		local transfer_amount = (reactor.temp - neighbor.temp) * NEIGHBOR_TRANSFER_AMOUNT
+		reactor.temp = reactor.temp - transfer_amount
+		neighbor.temp = neighbor.temp + transfer_amount
+	end
+	
+	local consume_amount = 1
 	if reactor.fuel > 0 then
 		local control_rod_signal = reactor_ent.get_signal({ name = "iron-stick", type = "item" }, defines.wire_connector_id.circuit_red, defines.wire_connector_id.circuit_green)
-		local consume_amount = 1.0 - clamp(control_rod_signal, 0, 100) / 100.0
-		local heating_amount = (reactor.efficiency + EFFICIENCY_BOOST_PER_HUNDRED_TEMP * reactor.temp / 100) * consume_amount
-		reactor.decay_heat = reactor.decay_heat + 0.01 * heating_amount
-		reactor.direct_heat = reactor.direct_heat + 0.5 * heating_amount
+		control_rod_signal = clamp(control_rod_signal / 100.0, 0, 1)
+		local auto_control_rod = clamp((reactor.temp - 1000) / 100.0, 0, 1)
+		consume_amount = 1.0 - math.max(control_rod_signal, auto_control_rod)
+		local heating_amount = consume_amount * reactor.efficiency
+		reactor.decay_heat = reactor.decay_heat + DECAY_HEAT_INCREASE * heating_amount
+		reactor.direct_heat = reactor.direct_heat + DIRECT_HEAT_INCREASE * heating_amount
 		reactor.fuel = reactor.fuel - fuel_consumption_per_update * consume_amount
 		if reactor.fuel <= 0 then
 			local burnt_result = prototypes.item[reactor_ent.burner.currently_burning.name.name].burnt_result
@@ -243,9 +264,9 @@ function update_reactor(reactor)
 		end
 	end
 	
-	reactor.temp = reactor.temp + reactor.decay_heat + reactor.direct_heat
+	reactor.temp = reactor.temp + (reactor.decay_heat + reactor.direct_heat) * (1.0 + EFFICIENCY_BOOST_PER_HUNDRED_TEMP * reactor.temp / 100)
 	
-	local max_water_available = reactor.fluid_input_ent.get_fluid_count()
+	local max_water_available = math.max(math.floor(reactor.fluid_input_ent.get_fluid_count()) - 15, 0)
 	local max_water_heatable = round(math.max(reactor.temp - SUPERHEATED_TEMP, 0) / TEMP_PER_SUPERHEATED_WATER)
 	local max_water_output_available = REACTOR_OUT_FLOW_SIZE - reactor.fluid_output_ent.get_fluid_count()
 	local water_to_heat = math.min(max_water_available, max_water_heatable, max_water_output_available, MAX_FLOW_PER_TICK)
@@ -257,11 +278,19 @@ function update_reactor(reactor)
 	reactor.pumping_sound_ent.active = water_to_heat > 0
 	reactor.creaking_sound_ent.active = reactor.temp > 100
 	
-	reactor.decay_heat = reactor.decay_heat * 0.99
-	reactor.direct_heat = reactor.direct_heat * 0.5
+	reactor.decay_heat = reactor.decay_heat * DECAY_HEAT_DECAY
+	reactor.direct_heat = reactor.direct_heat * DIRECT_HEAT_DECAY
 	reactor.temp = lerp(reactor.temp, 15, 0.00005)
 	
 	reactor_ent.burner.remaining_burning_fuel = reactor.fuel
 	reactor_ent.temperature = reactor.temp
+	
+	if reactor.debug_text_1 then
+		reactor.debug_text_1.text = "Temp: " .. round(reactor.temp)
+		reactor.debug_text_2.text = "Direct heat: " .. round(reactor.direct_heat * 100) / 100
+		reactor.debug_text_3.text = "Decay heat: " .. round(reactor.decay_heat * 100) / 100
+		reactor.debug_text_4.text = "Control rod percent: " .. round((1.0 - consume_amount) * 100)
+		reactor.debug_text_5.text = "Coolant flow: " .. round(water_to_heat)
+	end
 	
 end

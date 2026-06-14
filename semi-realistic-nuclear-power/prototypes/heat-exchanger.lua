@@ -2,6 +2,7 @@ local pressurized_heat_exchanger = table.deepcopy(data.raw["assembling-machine"]
 pressurized_heat_exchanger.name = "pressurized-heat-exchanger"
 pressurized_heat_exchanger.minable.result = "pressurized-heat-exchanger"
 pressurized_heat_exchanger.crafting_categories = { "pressurized-heat-exchanger" }
+pressurized_heat_exchanger.allowed_effects = { "speed", "consumption", "pollution" }
 for _,direction in pairs(pressurized_heat_exchanger.graphics_set.animation) do
 	direction.layers[1].filename = "__semi-realistic-nuclear-power__/graphics/entity/pressurized-heat-exchanger.png"
 end

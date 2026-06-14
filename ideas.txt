@@ -115,9 +115,9 @@ or maybe:
 
 - there's a new building called 'pressurizer' that takes in 'water' and outputs 'high pressure water'
 - there's a new building called 'pressurized heat exchanger' which has the recipes:
-  - takes in 'superheated water' and 'water' and outputs 'high pressure water' and 'high pressure steam'
-  - takes in 'high pressure steam' and 'water' and outputs 'medium pressure steam' and 'steam'
-  - takes in 'medium pressure steam' and 'water' and outputs 'steam' (the amount is the amount of input 'medium pressure steam' plus the amount of input 'water')
+  - 'superheated water' + 'water' -> 'high pressure water' + 'high pressure steam'
+  - 'high pressure steam' + 'water' -> 'medium pressure steam' + 'steam'
+  - 'medium pressure steam' + 'water' -> 'steam' (the amount is the amount of input 'medium pressure steam' plus the amount of input 'water')
 - there's a new building called 'high pressure steam turbine' that takes in 'dry high pressure steam' and outputs 'medium pressure steam' and electricity
 - there's a new building called 'medium pressure steam turbine' that takes in 'dry medium pressure steam' and outputs 'steam' and electricity
 - chemical plants now have three new recipes:
