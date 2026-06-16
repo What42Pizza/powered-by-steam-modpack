@@ -5,9 +5,14 @@ This mod adds somewhat realistic nuclear power generation. You have to feed pres
 Details to know:
 
 - Control rods automatically start deploying at 1000C (with 100% strength at 1100C)
-- Even though there's no gui for it, you can manually set the control rod strength by giving the reactors an 'iron stick' signal
+- Even though there's no gui for it, you can manually increase the control rod strength by giving the reactors an 'iron stick' circuit signal
 - Reactors continue producing heat even after control rods are activated / after fuel runs out
-- Efficiency increases (consumption stays the same but heat output increases) the hotter the reactor is
+- Efficiency increases the hotter the reactor is (consumption stays the same but heat output increases)
+- Reactors get a neighbor efficiency bonus even when neighboring reactors are not fueled
+- A reactor will only be cooled if:
+  - Its fluid input has more than 15 fluid units
+  - Its fluid output has space available
+  - It is above 700°
 
 ### Credits:
 

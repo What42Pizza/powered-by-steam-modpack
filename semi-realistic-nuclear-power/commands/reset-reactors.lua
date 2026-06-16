@@ -1,6 +1,6 @@
 commands.add_command(
 	"reset-reactors",
-	"Detects all placed reactors, deletes all reactors and reactor entities, resets all stored reactor datas, then re-places all reactor entities.",
+	"Detects all placed reactors, deletes all reactors and reactor entities, resets all stored reactor datas, then re-places all reactor entities. Warning: this removes all connected circuit wires!",
 	function(command)
 		
 		local all_reactors = {}

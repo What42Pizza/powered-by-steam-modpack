@@ -10,7 +10,7 @@ local nuclear_reactor_segment = {
 		fuel_inventory_size = 1,
 		burnt_inventory_size = 1,
 		fuel_categories = { "nuclear" },
-		effectivity = 1,
+		effectivity = FUEL_CONSUME_EFFICIENCY,
 		light_flicker = {
 			color = { 0, 0, 0 },
 			maximum_intensity = 0.95,
@@ -101,6 +101,9 @@ local nuclear_reactor_segment_pumping_sounds = {
 		}
 	},
 	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
+	collision_mask = {
+		layers = {},
+	},
 	module_slots = 1,
 	allowed_effects = { "speed" },
 	energy_usage = "1W",
@@ -117,24 +120,27 @@ local nuclear_reactor_segment_creaking_sounds = {
 	working_sound = {
 		max_sounds_per_prototype = 1,
 		sound = {
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-1.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-2.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-3.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-4.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-5.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-6.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-7.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-8.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-9.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-10.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-11.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
-			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-12.ogg", volume = 0.5, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-1.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-2.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-3.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-4.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-5.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-6.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-7.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-8.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-9.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-10.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-11.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
+			{ filename = "__semi-realistic-nuclear-power__/sound/reactor-segment-creaking-12.ogg", volume = 0.4, audible_distance_modifier = 0.8 },
 			{ filename = "__semi-realistic-nuclear-power__/sound/silence-1.ogg", volume = 1.0, audible_distance_modifier = 0.8 },
 			{ filename = "__semi-realistic-nuclear-power__/sound/silence-2.ogg", volume = 1.0, audible_distance_modifier = 0.8 },
 			{ filename = "__semi-realistic-nuclear-power__/sound/silence-3.ogg", volume = 1.0, audible_distance_modifier = 0.8 },
 		}
 	},
 	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
+	collision_mask = {
+		layers = {},
+	},
 	module_slots = 1,
 	allowed_effects = { "speed" },
 	energy_usage = "1W",
@@ -177,6 +183,9 @@ local nuclear_reactor_segment_fluid_input = {
 		},
 	},
 	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
+	collision_mask = {
+		layers = {},
+	},
 	horizontal_window_bounding_box = {
 		left_top     = { 0, 0 },
 		right_bottom = { 0, 0 },
@@ -217,6 +226,9 @@ local nuclear_reactor_segment_fluid_output = {
 		},
 	},
 	flags = { "placeable-off-grid", "not-deconstructable", "not-blueprintable", "not-on-map" },
+	collision_mask = {
+		layers = {},
+	},
 	horizontal_window_bounding_box = {
 		left_top     = { 0, 0 },
 		right_bottom = { 0, 0 },
