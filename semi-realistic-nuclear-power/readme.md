@@ -8,6 +8,7 @@ Details to know:
 - Even though there's no gui for it, you can manually increase the control rod strength by giving the reactors an 'iron stick' circuit signal
 - Reactors continue producing heat even after control rods are activated / after fuel runs out
 - Efficiency increases the hotter the reactor is (consumption stays the same but heat output increases)
+- The base efficiency of a reactor is (0.5 + #neighbors * 0.2) * (1.0 + (quality_level - 1) * 0.2)
 - Reactors get a neighbor efficiency bonus even when neighboring reactors are not fueled
 - A reactor will only be cooled if:
   - Its fluid input has more than 15 fluid units
