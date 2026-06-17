@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ../exporter
+cd ../exporter-utility
 cargo run -- -p space-age-to-1.1-tweaks
