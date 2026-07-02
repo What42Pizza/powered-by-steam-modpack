@@ -2,8 +2,8 @@ local high_pressure_water = table.deepcopy(data.raw["fluid"]["water"])
 high_pressure_water.name = "high-pressure-water"
 high_pressure_water.icon = "__semi-realistic-nuclear-power__/graphics/icons/fluid/high-pressure-water.png"
 high_pressure_water.auto_barrel = false
-high_pressure_water.default_temperature = 200
-high_pressure_water.max_temperature = 200
+high_pressure_water.default_temperature = 400
+high_pressure_water.max_temperature = 400
 
 local superheated_water = table.deepcopy(data.raw["fluid"]["water"])
 superheated_water.name = "superheated-water"
@@ -23,8 +23,8 @@ local medium_pressure_steam = table.deepcopy(data.raw["fluid"]["steam"])
 medium_pressure_steam.name = "medium-pressure-steam"
 medium_pressure_steam.icon = "__semi-realistic-nuclear-power__/graphics/icons/fluid/medium-pressure-steam.png"
 medium_pressure_steam.auto_barrel = false
-medium_pressure_steam.default_temperature = 400
-medium_pressure_steam.max_temperature = 400
+medium_pressure_steam.default_temperature = 600
+medium_pressure_steam.max_temperature = 600
 
 local dry_high_pressure_steam = table.deepcopy(data.raw["fluid"]["steam"])
 dry_high_pressure_steam.name = "dry-high-pressure-steam"
@@ -37,8 +37,8 @@ local dry_medium_pressure_steam = table.deepcopy(data.raw["fluid"]["steam"])
 dry_medium_pressure_steam.name = "dry-medium-pressure-steam"
 dry_medium_pressure_steam.icon = "__semi-realistic-nuclear-power__/graphics/icons/fluid/medium-pressure-steam.png"
 dry_medium_pressure_steam.auto_barrel = false
-dry_medium_pressure_steam.default_temperature = 400
-dry_medium_pressure_steam.max_temperature = 400
+dry_medium_pressure_steam.default_temperature = 600
+dry_medium_pressure_steam.max_temperature = 600
 
 
 

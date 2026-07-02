@@ -1,10 +1,42 @@
-make requester chests research rely on fulgora science
-make energy shield mk1 research rely fulgora science
-remove energy shield mk2
-remove combinators research
+decided on:
+add small copper pipes (intermediate) (& replace most gear ingrediants with it?)
 make rocket fuel into a fluid
-nerf nuclear power (both reactor and boilers)
-make locomotives louder?
-add cooked fish?
+if coal coking is locked behind oil, it shouldn't be
+remove combinators research
+make engines require resin
+remove energy shield mk2
+make energy shield mk1 research rely fulgora science
+make foundries be powered by coal
+make all foundry recipes that output cool metal take water and output steam (at 100 degrees)
+make intermediates (like iron sticks) more used in recipes? (but maybe not copper wire)
+make pumps move more fluid?
+tweak the graphics of placed concrete
+
+add a uranium-based science pack?
+make uranium be pumped out of the ground?
+
+add cooked fish
+
+still thinkin on / vague:
+add more fluids?
+add more resources that are pumped out as fluids?
+add more unique intermediates? (kinda like how there's two plastic types to justify the existance of different oil types)
+remove solid fuel? (or replace with some sort of fuel canister?)
+add more science pack types?
+make elevated rail stuff stack higher?
+make locomotives more expensive?
+make cargo wagons lighter?
+remove speed modules?
+add a coal coking recipe that doesn't output volatile gas?
 incorporate https://mods.factorio.com/mod/train-trashtalk?
 recolor elevated rails, similar to https://mods.factorio.com/mod/elevated-rails-recolor?from=updated?
+make locomotives louder? (I think there's a mod that changes loco sounds)
+remove engines somehow?
+add multi-stage uranium enrichment?
+add freezing damage to aquilo when not wearing mech armor? (maybe make it its own mod?) (idk maybe useless since essentially everyone will be wearing it anyways, but maybe it still adds to the overall feeling?)
+
+unsure:
+make requester chests research rely on fulgora science?
+nerf nuclear power (both reactor and boilers)
+add ash? (probably not idk how you'd get it out easily and also it would need a good use)
+
